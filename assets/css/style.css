@@ -1,0 +1,496 @@
+/* ============================================================
+   ZhiVolt Web — Estilos Globales
+   Archivo: assets/css/style.css
+   Sprint 1 — T-03
+
+   IMPORTANTE: Este archivo se carga DESPUÉS de Bootstrap 5
+   en cada HTML. Sus estilos sobreescriben los defaults de
+   Bootstrap donde sea necesario.
+   ============================================================ */
+
+
+/* ─── 1. FUENTES ─────────────────────────────────────────────
+   Space Grotesk: tipografía de display y títulos.
+   Inter: tipografía de cuerpo de texto.
+   Ambas cargadas desde Google Fonts CDN.
+   ─────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+
+/* ─── 2. DESIGN TOKENS — Variables CSS ───────────────────────
+   Paleta de colores ZhiVolt, tipografía, espaciado y más.
+   Modificar aquí afecta todo el sitio automáticamente.
+   ─────────────────────────────────────────────────────────── */
+:root {
+
+  /* == COLORES RAW (valores exactos de la paleta) == */
+
+  /* Navys profundos */
+  --zv-navy-900: #1A2D42;   /* el navy más oscuro — hero, footer */
+  --zv-navy-800: #283040;   /* alternativo muy oscuro */
+  --zv-navy-700: #2E4156;   /* navy medio — tarjetas sobre fondo oscuro */
+  --zv-navy-600: #465973;   /* slate — bordes, separadores, hover */
+
+  /* Steel blue — color de acento */
+  --zv-steel-500: #7C8EA6;  /* acento principal — interactive, highlights */
+  --zv-steel-400: #A3AFBF;  /* steel claro — elementos decorativos */
+  --zv-steel-300: #AAB7B7;  /* steel muted — estados deshabilitados */
+
+  /* Neutros claros */
+  --zv-neutral-300: #C0C8CA; /* bordes sobre blanco */
+  --zv-neutral-200: #D4D8DD; /* fondo de secciones alternas claras */
+
+  /* Fondos */
+  --zv-cream: #F2EFEB;       /* fondo principal de secciones claras */
+  --zv-warm:  #F2EFE5;       /* fondo alterno cálido */
+  --zv-white: #FFFFFF;
+
+
+  /* == TOKENS SEMÁNTICOS (describen uso, no color) == */
+
+  /* Texto */
+  --zv-text-primary:        var(--zv-navy-900);
+  --zv-text-secondary:      var(--zv-navy-600);
+  --zv-text-muted:          var(--zv-steel-500);
+  --zv-text-on-dark:        #FFFFFF;
+  --zv-text-on-dark-muted:  rgba(255, 255, 255, 0.60);
+  --zv-text-accent:         var(--zv-steel-500);
+
+  /* Fondos de sección */
+  --zv-section-dark:   var(--zv-navy-900);  /* secciones oscuras */
+  --zv-section-mid:    var(--zv-navy-700);  /* secciones oscuras alternas */
+  --zv-section-light:  var(--zv-cream);     /* secciones claras */
+  --zv-section-white:  var(--zv-white);     /* secciones blancas */
+
+  /* Bordes */
+  --zv-border-dark:    var(--zv-navy-700);
+  --zv-border-light:   var(--zv-neutral-200);
+  --zv-border-accent:  var(--zv-steel-500);
+
+
+  /* == TIPOGRAFÍA == */
+  --zv-font-display: 'Space Grotesk', sans-serif; /* títulos */
+  --zv-font-body:    'Inter', sans-serif;          /* cuerpo */
+
+  /* Escala tipográfica */
+  --zv-text-xs:   0.75rem;   /*  12px */
+  --zv-text-sm:   0.875rem;  /*  14px */
+  --zv-text-base: 1rem;      /*  16px */
+  --zv-text-lg:   1.125rem;  /*  18px */
+  --zv-text-xl:   1.25rem;   /*  20px */
+  --zv-text-2xl:  1.5rem;    /*  24px */
+  --zv-text-3xl:  1.875rem;  /*  30px */
+  --zv-text-4xl:  2.25rem;   /*  36px */
+  --zv-text-5xl:  3rem;      /*  48px */
+  --zv-text-6xl:  3.75rem;   /*  60px */
+
+
+  /* == ESPACIADO == */
+  --zv-section-padding: 88px;   /* padding vertical de secciones */
+  --zv-section-padding-sm: 56px;
+
+
+  /* == BORDES REDONDEADOS == */
+  --zv-radius-sm: 4px;
+  --zv-radius-md: 8px;
+  --zv-radius-lg: 12px;
+  --zv-radius-xl: 20px;
+
+
+  /* == TRANSICIONES == */
+  --zv-transition:      all 0.3s ease;
+  --zv-transition-fast: all 0.15s ease;
+}
+
+
+/* ─── 3. RESET Y BASE ────────────────────────────────────────
+   Normaliza el comportamiento del navegador. Se aplica a
+   todos los elementos para evitar inconsistencias.
+   ─────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--zv-font-body);
+  font-size: var(--zv-text-base);
+  color: var(--zv-text-primary);
+  background-color: var(--zv-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;  /* suavizado de fuentes en macOS/iOS */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--zv-transition-fast);
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* ─── 4. TIPOGRAFÍA GLOBAL ───────────────────────────────────
+   Todos los headings usan Space Grotesk por defecto.
+   Los párrafos usan Inter.
+   ─────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--zv-font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--zv-text-primary);
+  margin-bottom: 0;
+}
+
+h1 { font-size: var(--zv-text-5xl); }
+h2 { font-size: var(--zv-text-4xl); }
+h3 { font-size: var(--zv-text-3xl); }
+h4 { font-size: var(--zv-text-2xl); }
+h5 { font-size: var(--zv-text-xl); }
+h6 { font-size: var(--zv-text-lg); }
+
+p {
+  font-family: var(--zv-font-body);
+  line-height: 1.75;
+  color: var(--zv-text-secondary);
+  margin-bottom: 0;
+}
+
+
+/* ─── 5. LAYOUT — Contenedor y secciones ────────────────────
+   .zv-container: wrapper con ancho máximo y padding lateral.
+   .zv-section: sección con padding vertical consistente.
+   ─────────────────────────────────────────────────────────── */
+.zv-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.zv-section {
+  padding: var(--zv-section-padding) 0;
+}
+
+/* Variantes de color de sección */
+.zv-section--dark  { background-color: var(--zv-section-dark); }
+.zv-section--mid   { background-color: var(--zv-section-mid); }
+.zv-section--light { background-color: var(--zv-section-light); }
+.zv-section--white { background-color: var(--zv-section-white); }
+
+/* Texto adaptado para secciones oscuras */
+.zv-section--dark h1,
+.zv-section--dark h2,
+.zv-section--dark h3,
+.zv-section--dark h4,
+.zv-section--dark h5,
+.zv-section--dark h6,
+.zv-section--mid  h1,
+.zv-section--mid  h2,
+.zv-section--mid  h3,
+.zv-section--mid  h4 {
+  color: var(--zv-text-on-dark);
+}
+
+.zv-section--dark p,
+.zv-section--mid  p {
+  color: var(--zv-text-on-dark-muted);
+}
+
+
+/* ─── 6. ELEMENTO FIRMA — Transiciones diagonales ────────────
+   El rasgo visual característico del sitio ZhiVolt.
+   clip-path recorta la sección en diagonal para crear
+   una sensación de movimiento y energía entre secciones.
+
+   Uso: añade .zv-diagonal-bottom a la sección que quieres
+   que tenga el corte en la parte inferior.
+   ─────────────────────────────────────────────────────────── */
+
+/* Corte diagonal en la parte inferior de la sección */
+.zv-diagonal-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+  padding-bottom: calc(var(--zv-section-padding) + 48px);
+}
+
+/* Corte diagonal en la parte superior de la sección */
+.zv-diagonal-top {
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+  padding-top: calc(var(--zv-section-padding) + 48px);
+}
+
+
+/* ─── 7. COMPONENTES GLOBALES ────────────────────────────────
+   Elementos reutilizables en todo el sitio.
+   ─────────────────────────────────────────────────────────── */
+
+/* Eyebrow — etiqueta pequeña sobre los títulos de sección */
+.zv-eyebrow {
+  display: block;
+  font-family: var(--zv-font-body);
+  font-size: var(--zv-text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--zv-steel-500);
+  margin-bottom: 12px;
+}
+
+.zv-section--dark .zv-eyebrow,
+.zv-section--mid  .zv-eyebrow {
+  color: var(--zv-steel-400);
+}
+
+/* Línea decorativa bajo el título principal de sección */
+.zv-section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.zv-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 44px;
+  height: 3px;
+  background-color: var(--zv-steel-500);
+  border-radius: 2px;
+}
+
+/* Disclaimer de precio — se usa en tarjetas y fichas de producto */
+.zv-price-disclaimer {
+  font-size: var(--zv-text-xs);
+  color: var(--zv-text-muted);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* Badge de categoría de producto */
+.zv-badge {
+  display: inline-block;
+  font-size: var(--zv-text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--zv-radius-sm);
+  background-color: rgba(124, 142, 166, 0.15);
+  color: var(--zv-steel-500);
+  border: 1px solid rgba(124, 142, 166, 0.3);
+}
+
+/* Badge "Sin licencia" — destacado visual */
+.zv-badge--nolicense {
+  background-color: rgba(97, 168, 120, 0.12);
+  color: #3a7d50;
+  border-color: rgba(97, 168, 120, 0.3);
+}
+
+
+/* ─── 8. BOTONES ─────────────────────────────────────────────
+   Sistema de botones ZhiVolt.
+   Dos variantes para secciones oscuras y dos para claras.
+   ─────────────────────────────────────────────────────────── */
+.zv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 30px;
+  border-radius: var(--zv-radius-md);
+  font-family: var(--zv-font-display);
+  font-size: var(--zv-text-sm);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: var(--zv-transition);
+  border: 2px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* -- Para secciones OSCURAS -- */
+
+/* Primario: sólido blanco — CTA principal sobre fondo navy */
+.zv-btn--primary {
+  background-color: var(--zv-white);
+  color: var(--zv-navy-900);
+  border-color: var(--zv-white);
+}
+.zv-btn--primary:hover {
+  background-color: transparent;
+  color: var(--zv-white);
+}
+
+/* Secundario: outline blanco — CTA secundario sobre fondo navy */
+.zv-btn--outline {
+  background-color: transparent;
+  color: var(--zv-white);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+.zv-btn--outline:hover {
+  border-color: var(--zv-white);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--zv-white);
+}
+
+/* -- Para secciones CLARAS -- */
+
+/* Primario: sólido navy — CTA principal sobre fondo claro */
+.zv-btn--navy {
+  background-color: var(--zv-navy-900);
+  color: var(--zv-white);
+  border-color: var(--zv-navy-900);
+}
+.zv-btn--navy:hover {
+  background-color: var(--zv-navy-700);
+  border-color: var(--zv-navy-700);
+  color: var(--zv-white);
+}
+
+/* Secundario: outline navy — CTA secundario sobre fondo claro */
+.zv-btn--outline-navy {
+  background-color: transparent;
+  color: var(--zv-navy-900);
+  border-color: var(--zv-navy-600);
+}
+.zv-btn--outline-navy:hover {
+  background-color: var(--zv-navy-900);
+  color: var(--zv-white);
+  border-color: var(--zv-navy-900);
+}
+
+/* Variante steel — para botones de catálogo y fichas */
+.zv-btn--steel {
+  background-color: var(--zv-steel-500);
+  color: var(--zv-white);
+  border-color: var(--zv-steel-500);
+}
+.zv-btn--steel:hover {
+  background-color: var(--zv-navy-600);
+  border-color: var(--zv-navy-600);
+  color: var(--zv-white);
+}
+
+/* Tamaño pequeño */
+.zv-btn--sm {
+  padding: 8px 18px;
+  font-size: var(--zv-text-xs);
+}
+
+
+/* ─── 9. CARRITO — Badge en navbar ───────────────────────────
+   Indicador visual del número de ítems en el carrito.
+   Se actualiza dinámicamente con JavaScript (main.js).
+   ─────────────────────────────────────────────────────────── */
+.zv-cart-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--zv-white);
+  transition: var(--zv-transition-fast);
+}
+
+.zv-cart-icon:hover {
+  color: var(--zv-steel-400);
+}
+
+.zv-cart-badge {
+  position: absolute;
+  top: -7px;
+  right: -9px;
+  background-color: var(--zv-steel-500);
+  color: var(--zv-white);
+  font-family: var(--zv-font-body);
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+/* Ocultar badge si el carrito está vacío */
+.zv-cart-badge[data-count="0"] {
+  display: none;
+}
+
+
+/* ─── 10. RESPONSIVE ─────────────────────────────────────────
+   Breakpoints alineados con Bootstrap 5:
+   lg: 991px  |  md: 767px  |  sm: 575px
+   ─────────────────────────────────────────────────────────── */
+@media (max-width: 991px) {
+  :root {
+    --zv-section-padding: 64px;
+  }
+
+  h1 { font-size: var(--zv-text-4xl); }
+  h2 { font-size: var(--zv-text-3xl); }
+  h3 { font-size: var(--zv-text-2xl); }
+
+  .zv-diagonal-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 91%, 0 100%);
+  }
+  .zv-diagonal-top {
+    clip-path: polygon(0 9%, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --zv-section-padding: 48px;
+  }
+
+  h1 { font-size: var(--zv-text-3xl); }
+  h2 { font-size: var(--zv-text-2xl); }
+  h3 { font-size: var(--zv-text-xl); }
+
+  .zv-container {
+    padding: 0 16px;
+  }
+
+  .zv-btn {
+    padding: 11px 22px;
+  }
+
+  /* En móvil la diagonal es más suave para no recortar contenido */
+  .zv-diagonal-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%);
+    padding-bottom: calc(var(--zv-section-padding) + 32px);
+  }
+  .zv-diagonal-top {
+    clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 100%);
+    padding-top: calc(var(--zv-section-padding) + 32px);
+  }
+}
+
+@media (max-width: 575px) {
+  h1 { font-size: var(--zv-text-2xl); }
+  h2 { font-size: var(--zv-text-xl); }
+}

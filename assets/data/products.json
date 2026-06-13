@@ -1,0 +1,353 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-06-11",
+    "currency": "USD",
+    "note": "Fuente de datos del catálogo ZhiVolt. Para integración futura con la API de Odoo, reemplazar fetch('./assets/data/products.json') por el endpoint correspondiente sin modificar el resto del código.",
+    "priceDisclaimer": "Precios referenciales por unidad al MOQ indicado. Sujetos a variación según tipo de cambio USD/PEN vigente y volumen final del pedido. No constituyen oferta comercial vinculante."
+  },
+  "categories": [
+    {
+      "id": "scooters",
+      "name": "Scooters Eléctricos",
+      "description": "Scooters urbanos de alta eficiencia para flotas de reparto y movilidad corporativa.",
+      "icon": "fa-solid fa-motorcycle"
+    },
+    {
+      "id": "ebikes",
+      "name": "Bicicletas Eléctricas",
+      "description": "Bicicletas con asistencia eléctrica, aptas para ciclovías sin requisitos de licencia.",
+      "icon": "fa-solid fa-bicycle"
+    },
+    {
+      "id": "motos",
+      "name": "Motos y Trimotos",
+      "description": "Motocicletas y trimotos eléctricas para transporte de pasajeros y carga pesada.",
+      "icon": "fa-solid fa-truck-fast"
+    },
+    {
+      "id": "minicars",
+      "name": "Miniautomóviles",
+      "description": "Vehículos eléctricos compactos de 2 a 4 plazas para uso urbano e interdistrital.",
+      "icon": "fa-solid fa-car"
+    }
+  ],
+  "products": [
+    {
+      "id": "zv-sc-001",
+      "slug": "spark-s1",
+      "category": "scooters",
+      "name": "ZhiVolt Spark S1",
+      "featured": true,
+      "shortDescription": "Scooter urbano de entrada, ideal para flotas de reparto de última milla y distribución masiva a bajo costo operativo.",
+      "licenseRequired": false,
+      "licenseNote": "No requiere licencia de conducir ni placa vehicular. Potencia nominal 800W. Ref.: Decreto Supremo N.° 058-2003-MTC, Art. 2, y Ley N.° 29237.",
+      "certifications": [
+        "CE",
+        "ROHS"
+      ],
+      "warranty": "12 meses",
+      "moq": 20,
+      "unitPriceUSD": 280,
+      "images": [
+        "assets/img/products/scooters/spark-s1-1.jpg",
+        "assets/img/products/scooters/spark-s1-2.jpg",
+        "assets/img/products/scooters/spark-s1-3.jpg"
+      ],
+      "specs": {
+        "Motor": "800W BLDC",
+        "Batería": "60V 20Ah Litio",
+        "Autonomía": "60 km",
+        "Vel. máx.": "45 km/h",
+        "Carga máx.": "120 kg",
+        "Peso del vehíc.": "78 kg",
+        "T. de carga": "6-8 h",
+        "Neumáticos": "90/90-10",
+        "Dimensiones": "1820 × 680 × 1100 mm"
+      },
+      "tags": [
+        "sin-licencia",
+        "urbano",
+        "flota",
+        "reparto",
+        "última-milla"
+      ]
+    },
+    {
+      "id": "zv-sc-002",
+      "slug": "bolt-x3",
+      "category": "scooters",
+      "name": "ZhiVolt Bolt X3",
+      "featured": true,
+      "shortDescription": "Scooter premium de alto rendimiento para compradores que priorizan autonomía extendida, velocidad y capacidad de carga superior.",
+      "licenseRequired": true,
+      "licenseNote": "Requiere licencia categoría A-I y placa vehicular. Potencia nominal 1500W. Ref.: Reglamento Nacional de Tránsito, MTC Perú.",
+      "certifications": [
+        "CE",
+        "ROHS",
+        "UL"
+      ],
+      "warranty": "18 meses",
+      "moq": 10,
+      "unitPriceUSD": 420,
+      "images": [
+        "assets/img/products/scooters/bolt-x3-1.jpg",
+        "assets/img/products/scooters/bolt-x3-2.jpg",
+        "assets/img/products/scooters/bolt-x3-3.jpg"
+      ],
+      "specs": {
+        "Motor": "1500W BLDC Hub",
+        "Batería": "72V 30Ah Litio NMC",
+        "Autonomía": "90 km",
+        "Vel. máx.": "60 km/h",
+        "Carga máx.": "150 kg",
+        "Peso del vehíc.": "95 kg",
+        "T. de carga": "5-7 h",
+        "Neumáticos": "100/80-12",
+        "Dimensiones": "1950 × 720 × 1150 mm"
+      },
+      "tags": [
+        "premium",
+        "alto-rendimiento",
+        "autonomia",
+        "sport"
+      ]
+    },
+    {
+      "id": "zv-eb-001",
+      "slug": "ecobike-500",
+      "category": "ebikes",
+      "name": "ZhiVolt EcoBike 500",
+      "featured": false,
+      "shortDescription": "Bicicleta eléctrica con asistencia al pedaleo para uso urbano y ciclovías. Sin trámites vehiculares ni licencia de conducir.",
+      "licenseRequired": false,
+      "licenseNote": "No requiere licencia de conducir ni placa vehicular. Clasificada como bicicleta de pedaleo asistido. Ref.: Ley N.° 30936 y modificatorias, MTC Perú.",
+      "certifications": [
+        "CE",
+        "EN15194"
+      ],
+      "warranty": "12 meses",
+      "moq": 30,
+      "unitPriceUSD": 195,
+      "images": [
+        "assets/img/products/ebikes/ecobike-500-1.jpg",
+        "assets/img/products/ebikes/ecobike-500-2.jpg",
+        "assets/img/products/ebikes/ecobike-500-3.jpg"
+      ],
+      "specs": {
+        "Motor": "500W Hub Motor trasero",
+        "Batería": "48V 20Ah Litio extraíble",
+        "Autonomía": "70 km",
+        "Vel. máx.": "25 km/h",
+        "Carga máx.": "120 kg",
+        "Peso del vehíc.": "22 kg",
+        "T. de carga": "4-6 h",
+        "Cuadro": "Aleación de aluminio 6061",
+        "Dimensiones": "1780 × 650 × 1050 mm"
+      },
+      "tags": [
+        "sin-licencia",
+        "ciclovía",
+        "ecológico",
+        "ligero",
+        "urbano"
+      ]
+    },
+    {
+      "id": "zv-eb-002",
+      "slug": "ecobike-cargo",
+      "category": "ebikes",
+      "name": "ZhiVolt EcoBike Cargo",
+      "featured": true,
+      "shortDescription": "Bicicleta eléctrica de carga para reparto intensivo. Rack trasero reforzado con capacidad de hasta 200 kg. Sin licencia.",
+      "licenseRequired": false,
+      "licenseNote": "No requiere licencia de conducir ni placa vehicular. Ref.: Ley N.° 30936 y modificatorias, MTC Perú.",
+      "certifications": [
+        "CE",
+        "ROHS"
+      ],
+      "warranty": "12 meses",
+      "moq": 20,
+      "unitPriceUSD": 310,
+      "images": [
+        "assets/img/products/ebikes/ecobike-cargo-1.jpg",
+        "assets/img/products/ebikes/ecobike-cargo-2.jpg",
+        "assets/img/products/ebikes/ecobike-cargo-3.jpg"
+      ],
+      "specs": {
+        "Motor": "1000W Hub Motor trasero",
+        "Batería": "60V 26Ah Litio LMFP extraíble",
+        "Autonomía": "80-90 km",
+        "Vel. máx.": "25 km/h",
+        "Carga máx.": "200 kg (rack reforzado)",
+        "Peso del vehíc.": "38 kg",
+        "T. de carga": "6-8 h",
+        "Cuadro": "Acero de alta resistencia",
+        "Dimensiones": "2100 × 700 × 1100 mm"
+      },
+      "tags": [
+        "sin-licencia",
+        "cargo",
+        "reparto",
+        "logística",
+        "delivery"
+      ]
+    },
+    {
+      "id": "zv-mt-001",
+      "slug": "moto-e2",
+      "category": "motos",
+      "name": "ZhiVolt Moto E2",
+      "featured": true,
+      "shortDescription": "Motocicleta eléctrica urbana de alto torque para uso diario intensivo. Potencia y autonomía para recorridos exigentes.",
+      "licenseRequired": true,
+      "licenseNote": "Requiere licencia categoría A-I y placa vehicular. Ref.: Reglamento Nacional de Tránsito, MTC Perú.",
+      "certifications": [
+        "CE",
+        "ROHS"
+      ],
+      "warranty": "18 meses",
+      "moq": 10,
+      "unitPriceUSD": 580,
+      "images": [
+        "assets/img/products/motos/moto-e2-1.jpg",
+        "assets/img/products/motos/moto-e2-2.jpg",
+        "assets/img/products/motos/moto-e2-3.jpg"
+      ],
+      "specs": {
+        "Motor": "3000W BLDC",
+        "Batería": "72V 40Ah Litio",
+        "Autonomía": "100 km",
+        "Vel. máx.": "80 km/h",
+        "Carga máx.": "160 kg",
+        "Peso del vehíc.": "110 kg",
+        "T. de carga": "6-8 h",
+        "Dimensiones": "2050 × 750 × 1200 mm"
+      },
+      "tags": [
+        "moto",
+        "alta-potencia",
+        "urbano",
+        "intensivo"
+      ]
+    },
+    {
+      "id": "zv-mt-002",
+      "slug": "cargo-t3",
+      "category": "motos",
+      "name": "ZhiVolt Cargo T3",
+      "featured": false,
+      "shortDescription": "Trimoto eléctrica para distribución urbana de carga pesada. Capacidad de 800 kg para operaciones comerciales de alto volumen.",
+      "licenseRequired": true,
+      "licenseNote": "Requiere licencia de conducir y placa vehicular. Ref.: Reglamento Nacional de Tránsito, MTC Perú.",
+      "certifications": [
+        "CE"
+      ],
+      "warranty": "12 meses",
+      "moq": 5,
+      "unitPriceUSD": 1050,
+      "images": [
+        "assets/img/products/motos/cargo-t3-1.jpg",
+        "assets/img/products/motos/cargo-t3-2.jpg",
+        "assets/img/products/motos/cargo-t3-3.jpg"
+      ],
+      "specs": {
+        "Motor": "1100W BLDC (alto torque)",
+        "Batería": "60V 45Ah Plomo-Grafeno",
+        "Autonomía": "75 km",
+        "Vel. máx.": "22 km/h",
+        "Carga máx.": "800 kg",
+        "Peso del vehíc.": "280 kg (vacío)",
+        "T. de carga": "8-10 h",
+        "Dimensiones": "2800 × 1200 × 1400 mm"
+      },
+      "tags": [
+        "trimoto",
+        "cargo-pesado",
+        "distribución",
+        "comercial",
+        "industria"
+      ]
+    },
+    {
+      "id": "zv-mc-001",
+      "slug": "minicars-a2",
+      "category": "minicars",
+      "name": "ZhiVolt MiniCity A2",
+      "featured": true,
+      "shortDescription": "Miniautomóvil eléctrico de 2 plazas para movilidad urbana compacta y eficiente. Cero emisiones, bajo costo por kilómetro.",
+      "licenseRequired": true,
+      "licenseNote": "Requiere licencia categoría B-I y placa vehicular. Ref.: Reglamento Nacional de Tránsito, MTC Perú.",
+      "certifications": [
+        "CE",
+        "ISO9001"
+      ],
+      "warranty": "24 meses",
+      "moq": 3,
+      "unitPriceUSD": 3200,
+      "images": [
+        "assets/img/products/minicars/minicars-a2-1.jpg",
+        "assets/img/products/minicars/minicars-a2-2.jpg",
+        "assets/img/products/minicars/minicars-a2-3.jpg"
+      ],
+      "specs": {
+        "Motor": "2500W PMSM",
+        "Batería": "72V 100Ah Litio LFP",
+        "Autonomía": "120 km",
+        "Vel. máx.": "60 km/h",
+        "Plazas": "2",
+        "Carga máx.": "250 kg",
+        "Peso del vehíc.": "480 kg",
+        "T. de carga": "6-8 h",
+        "Dimensiones": "2900 × 1300 × 1500 mm"
+      },
+      "tags": [
+        "minicar",
+        "2-plazas",
+        "urbano",
+        "compacto",
+        "cero-emisiones"
+      ]
+    },
+    {
+      "id": "zv-mc-002",
+      "slug": "minivan-f4",
+      "category": "minicars",
+      "name": "ZhiVolt MiniVan F4",
+      "featured": false,
+      "shortDescription": "Miniautomóvil familiar de 4 plazas con mayor autonomía para uso urbano e interdistrital. Ideal para flotas de traslado.",
+      "licenseRequired": true,
+      "licenseNote": "Requiere licencia categoría B-I y placa vehicular. Ref.: Reglamento Nacional de Tránsito, MTC Perú.",
+      "certifications": [
+        "CE",
+        "ISO9001"
+      ],
+      "warranty": "24 meses",
+      "moq": 3,
+      "unitPriceUSD": 4400,
+      "images": [
+        "assets/img/products/minicars/minivan-f4-1.jpg",
+        "assets/img/products/minicars/minivan-f4-2.jpg",
+        "assets/img/products/minicars/minivan-f4-3.jpg"
+      ],
+      "specs": {
+        "Motor": "3500W PMSM",
+        "Batería": "72V 150Ah Litio LFP",
+        "Autonomía": "150 km",
+        "Vel. máx.": "70 km/h",
+        "Plazas": "4",
+        "Carga máx.": "400 kg",
+        "Peso del vehíc.": "620 kg",
+        "T. de carga": "8-10 h",
+        "Dimensiones": "3400 × 1500 × 1600 mm"
+      },
+      "tags": [
+        "minivan",
+        "4-plazas",
+        "familiar",
+        "interdistrital",
+        "cero-emisiones"
+      ]
+    }
+  ]
+}
