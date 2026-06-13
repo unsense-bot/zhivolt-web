@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "ritwickdey.LiveServer",
+    "usernamehw.errorlens",
+    "dbaeumer.vscode-eslint",
+    "formulahendry.auto-rename-tag",
+    "ecmel.vscode-html-css",
+    "pranaygp.vscode-css-peek",
+    "naumovs.color-highlight",
+    "xabikos.JavaScriptSnippets",
+    "anbuselvanrocky.bootstrap5-vscode",
+    "eamodio.gitlens",
+    "pkief.material-icon-theme",
+    "christian-kohler.path-intellisense",
+    "wayou.vscode-todo-highlight"
+  ]
+}
