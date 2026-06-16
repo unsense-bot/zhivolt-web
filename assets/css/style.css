@@ -494,3 +494,173 @@ p {
   h1 { font-size: var(--zv-text-2xl); }
   h2 { font-size: var(--zv-text-xl); }
 }
+
+/* ============================================== */
+/* NAVBAR COMPONENT — T-05                          */
+/* ============================================== */
+
+.navbar-zv {
+  background-color: var(--zv-navy-900);
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.zv-logo-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.zv-logo-hex {
+  fill: var(--zv-navy-900);
+  stroke: var(--zv-steel-500);
+  stroke-width: 4;
+}
+
+.zv-logo-bolt {
+  fill: var(--zv-steel-500);
+}
+
+.zv-wordmark {
+  font-family: var(--zv-font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.zv-word-zhi {
+  color: var(--zv-white);
+}
+
+.zv-word-volt {
+  color: var(--zv-steel-500);
+}
+
+.zv-wordmark-sub {
+  display: block;
+  font-family: var(--zv-font-body);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--zv-steel-400);
+  opacity: 0.75;
+}
+
+.navbar-zv .nav-link {
+  color: var(--zv-neutral-200);
+  font-family: var(--zv-font-body);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+.navbar-zv .nav-link:hover,
+.navbar-zv .nav-link:focus {
+  color: var(--zv-white);
+}
+
+.navbar-zv .nav-link.active {
+  color: var(--zv-white);
+}
+
+.navbar-zv .nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.15rem;
+  height: 2px;
+  background-color: var(--zv-steel-500);
+  border-radius: 2px;
+}
+
+.zv-cart-btn {
+  background: transparent;
+  border: none;
+  color: var(--zv-neutral-200);
+  font-size: 1.1rem;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+}
+
+.zv-cart-btn:hover {
+  color: var(--zv-white);
+}
+
+.zv-cart-badge {
+  position: absolute;
+  top: 0;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  font-size: 0.65rem;
+  line-height: 18px;
+  padding: 0 4px;
+  background-color: var(--zv-steel-500);
+  color: var(--zv-navy-900);
+  font-weight: 700;
+}
+
+/* Requisito del proyecto: el badge se oculta cuando el carrito está vacío */
+.zv-cart-badge[data-count="0"] {
+  display: none;
+}
+
+/* ============================================== */
+/* FOOTER COMPONENT — T-06                          */
+/* ============================================== */
+
+.zv-footer {
+  background-color: var(--zv-navy-900);
+  color: var(--zv-neutral-200);
+  padding-top: 5rem;
+  padding-bottom: 1.5rem;
+}
+
+.zv-footer h6 {
+  font-family: var(--zv-font-display);
+  color: var(--zv-white);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+.zv-footer a {
+  color: var(--zv-neutral-200);
+  text-decoration: none;
+}
+
+.zv-footer a:hover {
+  color: var(--zv-steel-500);
+}
+
+.zv-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--zv-navy-600);
+  color: var(--zv-neutral-200);
+  margin-right: 0.5rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.zv-social-link:hover {
+  background-color: var(--zv-steel-500);
+  border-color: var(--zv-steel-500);
+  color: var(--zv-navy-900);
+}
+
+.zv-footer-disclaimer {
+  font-size: 0.78rem;
+  color: var(--zv-steel-400);
+  border-top: 1px solid var(--zv-navy-600);
+  padding-top: 1.25rem;
+  margin-top: 2.5rem;
+}
