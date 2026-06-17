@@ -39,7 +39,7 @@
        nosotros.html y contacto.html. Solo cambia el valor de data-page en <body>. -->
   <!-- ============================================== -->
   <nav class="navbar navbar-expand-lg navbar-zv sticky-top" data-bs-theme="dark" aria-label="Navegación principal">
-    <div class="container">
+    <div class="zv-container">
 
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
         <svg class="zv-logo-icon" viewBox="0 0 100 100" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -66,7 +66,7 @@
           <li class="nav-item">
             <!-- El offcanvas #zvCartOffcanvas se construye en T-21 (Sprint 3). Hasta entonces,
                  este botón existe visualmente pero no abre nada: no genera errores en consola. -->
-            <button type="button" class="zv-cart-btn" data-bs-toggle="offcanvas" data-bs-target="#zvCartOffcanvas"
+            <button type="button" class="zv-cart-icon" data-bs-toggle="offcanvas" data-bs-target="#zvCartOffcanvas"
                     aria-controls="zvCartOffcanvas" aria-label="Ver productos en cotización">
               <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
               <span class="zv-cart-badge badge rounded-pill" data-count="0">0</span>
@@ -80,31 +80,71 @@
 
   <main>
 
-    <!-- ============================================== -->
-    <!-- HERO — T-07 (Sprint 1, pendiente)                -->
-    <!-- Fondo navy-900, titular Space Grotesk 700, 2 CTAs, corte diagonal inferior. -->
-    <!-- ============================================== -->
+    <!-- HERO — T-07 -->
+    <section class="zv-section zv-section--dark zv-diagonal-bottom zv-hero">
+      <svg class="zv-hero-decor d-none d-lg-block" viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="zv-hero-decor-hex" points="50,5 89,27.5 89,72.5 50,95 11,72.5 11,27.5"></polygon>
+      </svg>
+      <div class="zv-container">
+        <div class="row">
+          <div class="col-lg-8">
+            <span class="zv-eyebrow">Importación B2B de movilidad eléctrica</span>
+            <h1>Vehículos eléctricos para tu negocio, sin licencia de conducir</h1>
+            <p class="mt-3" style="max-width:560px;">Importamos y distribuimos al por mayor scooters, bicicletas, motos y miniautomóviles eléctricos pensados para el mercado peruano. Muchos de nuestros modelos no requieren licencia de conducir según la normativa vigente del MTC.</p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="contacto.html" class="zv-btn zv-btn--primary">Solicitar cotización</a>
+              <a href="catalogo.html" class="zv-btn zv-btn--outline">Ver catálogo</a>
+            </div>
+            <p class="zv-hero-trust">Fundada en 2023 · Sede y almacén en Callao · +32 colaboradores</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- ============================================== -->
-    <!-- "¿POR QUÉ ZHIVOLT?" — T-08 (Sprint 1, pendiente)  -->
-    <!-- 4 tarjetas Bootstrap: sourcing China, QC propio, logística nacional, soporte postventa. -->
-    <!-- ============================================== -->
+    <!-- "¿POR QUÉ ZHIVOLT?" — T-08 -->
+    <section class="zv-section zv-section--light">
+      <div class="zv-container">
+        <span class="zv-eyebrow">Ventaja competitiva</span>
+        <h2 class="zv-section-title">¿Por qué elegir ZhiVolt?</h2>
+        <p class="mb-5" style="max-width:620px;">Estructuramos toda nuestra cadena de operaciones, desde el sourcing en China hasta la entrega en Callao, para que distribuir movilidad eléctrica en el Perú sea simple y rentable para tu empresa.</p>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="zv-feature-card">
+              <div class="zv-feature-icon"><i class="fa-solid fa-industry" aria-hidden="true"></i></div>
+              <h5>Sourcing directo en China</h5>
+              <p>Seleccionamos y negociamos directamente con fábricas, sin intermediarios que encarezcan el producto final.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="zv-feature-card">
+              <div class="zv-feature-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></div>
+              <h5>Control de calidad propio</h5>
+              <p>Cada unidad se revisa en nuestro almacén del Callao antes de salir a distribución; el QC no se terceriza.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="zv-feature-card">
+              <div class="zv-feature-icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></div>
+              <h5>Logística nacional</h5>
+              <p>Coordinamos el transporte desde Callao hacia los puntos de venta de nuestros distribuidores en todo el país.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="zv-feature-card">
+              <div class="zv-feature-icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></div>
+              <h5>Soporte postventa</h5>
+              <p>Acompañamos a nuestros distribuidores con repuestos, garantía y soporte técnico durante todo el ciclo del vehículo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- ============================================== -->
-    <!-- "VEHÍCULOS DESTACADOS" — T-19 (Sprint 2, pendiente) -->
-    <!-- Requiere fetch() a products.json, por eso se construye junto con el catálogo. -->
-    <!-- ============================================== -->
+    <!-- "VEHÍCULOS DESTACADOS" — T-19 (Sprint 2): requiere fetch() a products.json -->
 
-    <!-- ============================================== -->
-    <!-- "VENTAJA REGULATORIA" — T-09 (Sprint 1, pendiente) -->
-    <!-- Infografía: vehículos que no requieren licencia (normativa MTC). -->
-    <!-- ============================================== -->
+    <!-- "VENTAJA REGULATORIA" — T-09 (pendiente) -->
 
-    <!-- ============================================== -->
-    <!-- "CÓMO TRABAJAMOS" + CTA FINAL — T-10 (Sprint 1, pendiente) -->
-    <!-- 4 pasos del proceso B2B + bloque de cierre. El CTA final no tenía tarea
-         asignada en el backlog original; se incorporó aquí (ver nota de planificación). -->
-    <!-- ============================================== -->
+    <!-- "CÓMO TRABAJAMOS" + CTA FINAL — T-10 (pendiente, incluye el CTA sin tarea propia) -->
 
   </main>
 
@@ -113,7 +153,7 @@
   <!-- Igual que el navbar, este bloque se replica sin cambios en las otras 4 páginas. -->
   <!-- ============================================== -->
   <footer class="zv-footer zv-diagonal-top">
-    <div class="container">
+    <div class="zv-container">
       <div class="row gy-4">
 
         <div class="col-lg-4 col-md-6">
