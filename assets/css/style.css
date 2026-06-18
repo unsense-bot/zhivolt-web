@@ -701,3 +701,113 @@ p {
 
 .zv-feature-card h5 { margin-bottom: 10px; }
 .zv-feature-card p { font-size: var(--zv-text-sm); }
+
+/* ============================================== */
+/* LICENSE CARDS — T-09                             */
+/* ============================================== */
+
+.zv-license-card {
+  background-color: var(--zv-navy-700);
+  border-radius: var(--zv-radius-lg);
+  padding: 32px 28px;
+  height: 100%;
+}
+
+.zv-license-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.zv-license-card--yes .zv-license-icon {
+  background-color: rgba(124, 142, 166, 0.18);
+  color: var(--zv-steel-400);
+}
+
+.zv-license-card--no .zv-license-icon {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--zv-neutral-300);
+}
+
+.zv-license-card h5 { color: var(--zv-white); margin-bottom: 14px; }
+
+.zv-license-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.zv-license-card li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--zv-navy-600);
+  font-size: var(--zv-text-sm);
+  color: var(--zv-neutral-200);
+}
+
+.zv-license-card li:last-child { border-bottom: none; }
+
+.zv-license-note {
+  font-size: var(--zv-text-xs);
+  color: var(--zv-steel-400);
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+/* ============================================== */
+/* PROCESS STEPS + CTA BANNER — T-10                */
+/* ============================================== */
+
+.zv-steps-row { position: relative; margin-top: 8px; }
+
+@media (min-width: 992px) {
+  .zv-steps-row::before {
+    content: '';
+    position: absolute;
+    top: 26px;
+    left: 14%;
+    right: 14%;
+    height: 1px;
+    background-color: var(--zv-border-light);
+    z-index: 0;
+  }
+}
+
+.zv-step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 8px;
+}
+
+.zv-step-number {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background-color: var(--zv-navy-900);
+  color: var(--zv-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--zv-font-display);
+  font-weight: 700;
+}
+
+.zv-step h5 { margin-bottom: 8px; }
+.zv-step p { font-size: var(--zv-text-sm); margin-bottom: 0; }
+
+.zv-cta-banner {
+  background-color: var(--zv-steel-500);
+  border-radius: var(--zv-radius-lg);
+  padding: 48px 40px;
+  text-align: center;
+  margin-top: 64px;
+}
+
+.zv-cta-banner h3 { color: var(--zv-navy-900); margin-bottom: 12px; }
+.zv-cta-banner p { color: var(--zv-navy-900); margin-bottom: 24px; }
