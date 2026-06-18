@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZhiVolt | Importación B2B de Micromovilidad Eléctrica en Perú</title>
+  <meta name="description" content="ZhiVolt Importaciones S.A.C. — Distribución mayorista de scooters, bicicletas eléctricas, motos y miniautomóviles eléctricos para empresas en Perú.">
+
+  <!-- Favicon: el archivo real se agrega en T-34 (Sprint 4). Esta línea no rompe nada mientras tanto. -->
+  <link rel="icon" href="assets/img/brand/favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts: Space Grotesk (headings) + Inter (cuerpo) -->
+  <!-- Si style.css ya tiene un @import de estas fuentes, elimínalo de ahí: cargarlas vía <link> en el head
+       permite que el navegador las descargue en paralelo con el resto de recursos, en vez de bloquear
+       el renderizado esperando a que se procese el CSS primero. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.8 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- Font Awesome 6.7.2 (vía cdnjs, gratuito, sin necesidad de cuenta) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- AOS (Animate On Scroll) 2.3.4 — el CSS se carga ya, el JS y AOS.init() llegan recién en T-32 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+  <!-- Estilos propios del proyecto -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="inicio">
+
+  <!-- ============================================== -->
+  <!-- NAVBAR — T-05 (Sprint 1) ✅                      -->
+  <!-- Este bloque completo se reutiliza tal cual en catalogo.html, producto.html,
+       nosotros.html y contacto.html. Solo cambia el valor de data-page en <body>. -->
+  <!-- ============================================== -->
+  <nav class="navbar navbar-expand-lg navbar-zv sticky-top" data-bs-theme="dark" aria-label="Navegación principal">
+    <div class="zv-container">
+
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <svg class="zv-logo-icon" viewBox="0 0 100 100" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="zv-logo-hex" points="50,5 89,27.5 89,72.5 50,95 11,72.5 11,27.5"></polygon>
+          <polygon class="zv-logo-bolt" points="52.2,28 30.2,54.4 50,54.4 47.8,72 69.8,45.6 50,45.6"></polygon>
+        </svg>
+        <span class="zv-wordmark">
+          <span class="zv-word-zhi">Zhi</span><span class="zv-word-volt">Volt</span>
+          <small class="zv-wordmark-sub">Importaciones S.A.C.</small>
+        </span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#zvNavbarMain"
+              aria-controls="zvNavbarMain" aria-expanded="false" aria-label="Abrir menú de navegación">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="zvNavbarMain">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" data-page="inicio" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="catalogo" href="catalogo.html">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="nosotros" href="nosotros.html">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" data-page="contacto" href="contacto.html">Contacto</a></li>
+          <li class="nav-item">
+            <!-- El offcanvas #zvCartOffcanvas se construye en T-21 (Sprint 3). Hasta entonces,
+                 este botón existe visualmente pero no abre nada: no genera errores en consola. -->
+            <button type="button" class="zv-cart-icon" data-bs-toggle="offcanvas" data-bs-target="#zvCartOffcanvas"
+                    aria-controls="zvCartOffcanvas" aria-label="Ver productos en cotización">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+              <span class="zv-cart-badge badge rounded-pill" data-count="0">0</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO — T-07 -->
+    <section class="zv-section zv-section--dark zv-diagonal-bottom zv-hero">
+      <svg class="zv-hero-decor d-none d-lg-block" viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="zv-hero-decor-hex" points="50,5 89,27.5 89,72.5 50,95 11,72.5 11,27.5"></polygon>
+      </svg>
+      <div class="zv-container">
+        <div class="row">
+          <div class="col-lg-8">
+            <span class="zv-eyebrow">Importación B2B de movilidad eléctrica</span>
+            <h1>Vehículos eléctricos para tu negocio, sin licencia de conducir</h1>
+            <p class="mt-3" style="max-width:560px;">Importamos y distribuimos al por mayor scooters, bicicletas, motos y miniautomóviles eléctricos pensados para el mercado peruano. Muchos de nuestros modelos no requieren licencia de conducir según la normativa vigente del MTC.</p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="contacto.html" class="zv-btn zv-btn--primary">Solicitar cotización</a>
+              <a href="catalogo.html" class="zv-btn zv-btn--outline">Ver catálogo</a>
+            </div>
+            <p class="zv-hero-trust">Fundada en 2023 · Sede y almacén en Callao · +32 colaboradores</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- "¿POR QUÉ ZHIVOLT?" — T-08 -->
+    <section class="zv-section zv-section--light">
+      <div class="zv-container">
+        <span class="zv-eyebrow">Ventaja competitiva</span>
+        <h2 class="zv-section-title">¿Por qué elegir ZhiVolt?</h2>
+        <p class="mb-5" style="max-width:620px;">Estructuramos toda nuestra cadena de operaciones, desde el sourcing en China hasta la entrega en Callao, para que distribuir movilidad eléctrica en el Perú sea simple y rentable para tu empresa.</p>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="zv-feature-card">
+              <div class="zv-feature-icon"><i class="fa-solid fa-industry" aria-hidden="true"></i></div>
+              <h5>Sourcing directo en China</h5>
+              <p>Seleccionamos y negociamos directamente con fábricas, sin intermediarios que encarezcan el producto final.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="zv-feature-card">
+              <div class="zv-feature-icon"><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i></div>
+              <h5>Control de calidad propio</h5>
+              <p>Cada unidad se revisa en nuestro almacén del Callao antes de salir a distribución; el QC no se terceriza.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="zv-feature-card">
+              <div class="zv-feature-icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></div>
+              <h5>Logística nacional</h5>
+              <p>Coordinamos el transporte desde Callao hacia los puntos de venta de nuestros distribuidores en todo el país.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="zv-feature-card">
+              <div class="zv-feature-icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></div>
+              <h5>Soporte postventa</h5>
+              <p>Acompañamos a nuestros distribuidores con repuestos, garantía y soporte técnico durante todo el ciclo del vehículo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- "VEHÍCULOS DESTACADOS" — T-19 (Sprint 2): requiere fetch() a products.json -->
+
+    <!-- "VENTAJA REGULATORIA" — T-09 -->
+    <section class="zv-section zv-section--dark zv-diagonal-top">
+      <div class="zv-container">
+        <span class="zv-eyebrow">Ventaja regulatoria</span>
+        <h2 class="zv-section-title">¿Qué vehículos no requieren licencia en Perú?</h2>
+        <p class="mb-5" style="max-width:680px;">El MTC clasifica como Vehículo de Movilidad Personal (VMP) a los equipos con motor eléctrico, una sola plaza y velocidad de fábrica de hasta 25 km/h, según el Decreto Supremo N.º 023-2021-MTC. Esta categoría está exenta de brevete, placa, tarjeta de propiedad y SOAT. Al superar esos límites, el vehículo pasa a clasificarse como moto eléctrica y sí requiere los mismos documentos que una moto convencional.</p>
+
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="zv-license-card zv-license-card--yes">
+              <div class="zv-license-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></div>
+              <h5>No requieren licencia, placa ni SOAT</h5>
+              <ul>
+                <li>Scooters eléctricos clasificados como VMP</li>
+                <li>Bicicletas eléctricas dentro de los parámetros VMP</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="zv-license-card zv-license-card--no">
+              <div class="zv-license-icon"><i class="fa-solid fa-id-card" aria-hidden="true"></i></div>
+              <h5>Requieren licencia y registro vehicular</h5>
+              <ul>
+                <li>Motos y trimotos eléctricas que superan los 25 km/h</li>
+                <li>Miniautomóviles eléctricos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p class="zv-license-note">La clasificación exacta depende de la velocidad y potencia de cada modelo. Verifica el detalle normativo en la ficha técnica de cada producto del catálogo.</p>
+      </div>
+    </section>
+
+    <!-- "CÓMO TRABAJAMOS" + CTA FINAL — T-10 -->
+    <section class="zv-section zv-section--light">
+      <div class="zv-container">
+        <span class="zv-eyebrow">Proceso de compra</span>
+        <h2 class="zv-section-title">Cómo trabajamos contigo</h2>
+
+        <div class="row g-4 zv-steps-row">
+          <div class="col-lg-3 col-6">
+            <div class="zv-step">
+              <div class="zv-step-number">1</div>
+              <h5>Selección</h5>
+              <p>Explora el catálogo y elige los modelos que se ajustan a tu negocio.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <div class="zv-step">
+              <div class="zv-step-number">2</div>
+              <h5>Cotización</h5>
+              <p>Completa el formulario con tu RUC y proyección de compra; te enviamos una propuesta formal.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <div class="zv-step">
+              <div class="zv-step-number">3</div>
+              <h5>Pedido</h5>
+              <p>Confirmamos cantidades, condiciones comerciales y plazos según tu pedido.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <div class="zv-step">
+              <div class="zv-step-number">4</div>
+              <h5>Entrega</h5>
+              <p>Coordinamos el despacho desde Callao hacia tu punto de venta o almacén.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="zv-cta-banner">
+          <h3>¿Listo para distribuir movilidad eléctrica?</h3>
+          <p>Solicita tu cotización formal y un asesor te contactará en menos de 48 horas.</p>
+          <a href="contacto.html" class="zv-btn zv-btn--navy">Solicitar cotización</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================== -->
+  <!-- FOOTER — T-06 (Sprint 1) ✅                      -->
+  <!-- Igual que el navbar, este bloque se replica sin cambios en las otras 4 páginas. -->
+  <!-- ============================================== -->
+  <footer class="zv-footer zv-diagonal-top">
+    <div class="zv-container">
+      <div class="row gy-4">
+
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="d-flex align-items-center gap-2 mb-3 text-decoration-none">
+            <svg class="zv-logo-icon" viewBox="0 0 100 100" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <polygon class="zv-logo-hex" points="50,5 89,27.5 89,72.5 50,95 11,72.5 11,27.5"></polygon>
+              <polygon class="zv-logo-bolt" points="52.2,28 30.2,54.4 50,54.4 47.8,72 69.8,45.6 50,45.6"></polygon>
+            </svg>
+            <span class="zv-wordmark"><span class="zv-word-zhi">Zhi</span><span class="zv-word-volt">Volt</span></span>
+          </a>
+          <p class="small mb-3">ZhiVolt Importaciones S.A.C. importa y distribuye al por mayor vehículos de micromovilidad eléctrica para tiendas y distribuidores en todo el Perú.</p>
+          <div>
+            <a href="#" class="zv-social-link" aria-label="Facebook de ZhiVolt"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" class="zv-social-link" aria-label="Instagram de ZhiVolt"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="zv-social-link" aria-label="LinkedIn de ZhiVolt"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="#" class="zv-social-link" aria-label="TikTok de ZhiVolt"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h6>Navegación</h6>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="index.html">Inicio</a></li>
+            <li class="mb-2"><a href="catalogo.html">Catálogo</a></li>
+            <li class="mb-2"><a href="nosotros.html">Nosotros</a></li>
+            <li class="mb-2"><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h6>Contacto</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><i class="fa-solid fa-location-dot me-2" aria-hidden="true"></i>Av. Néstor Gambetta 1450, Callao, Perú</li>
+            <li class="mb-2"><i class="fa-solid fa-envelope me-2" aria-hidden="true"></i><a href="mailto:ventas@zhivolt.pe">ventas@zhivolt.pe</a></li>
+            <li class="mb-2"><i class="fa-solid fa-phone me-2" aria-hidden="true"></i><a href="tel:+5114567890">+51 1 456 7890</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h6>Información corporativa</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-2">RUC: 20609876543</li>
+            <li class="mb-2">Modelo de venta: exclusivamente B2B (mayorista)</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="zv-footer-disclaimer">
+        <p class="mb-1"><i class="fa-solid fa-circle-info me-2" aria-hidden="true"></i>Los precios mostrados en este sitio son referenciales en soles peruanos (S/) y están sujetos al tipo de cambio USD/PEN vigente al momento de la cotización formal. El precio final se confirma en la propuesta comercial enviada por nuestro equipo de ventas.</p>
+        <p class="mb-0">&copy; <span id="zvCurrentYear">2026</span> ZhiVolt Importaciones S.A.C. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3.8 Bundle JS (incluye Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <!-- AOS JS — el AOS.init() real con la configuración del proyecto llega en T-32 (Sprint 4) -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Lógica compartida del proyecto -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
