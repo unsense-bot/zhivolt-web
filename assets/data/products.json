@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "version": "1.0.0-dev",
+    "currency": "USD",
+    "priceDisclaimer": "Precios referenciales en USD, sujetos a tipo de cambio vigente. El precio final se confirma en la cotización formal.",
+    "note": "Catálogo de ejemplo (3 productos) mientras se definen los 15 modelos reales. Estructura definitiva, no tocar sin actualizar catalog.js y producto.html."
+  },
+  "categories": [
+    { "id": "scooters", "name": "Scooters Eléctricos", "icon": "fa-solid fa-person-skating" },
+    { "id": "ebikes", "name": "Bicicletas Eléctricas", "icon": "fa-solid fa-bicycle" },
+    { "id": "motos", "name": "Motos y Trimotos", "icon": "fa-solid fa-motorcycle" },
+    { "id": "minicars", "name": "Miniautomóviles", "icon": "fa-solid fa-car-side" }
+  ],
+  "products": [
+    {
+      "id": "zv-sc-001",
+      "slug": "spark-s1",
+      "category": "scooters",
+      "name": "ZhiVolt Spark S1",
+      "featured": true,
+      "licenseRequired": false,
+      "licenseNote": "Clasificado como VMP (hasta 25 km/h). No requiere licencia, placa ni SOAT, según D.S. N.º 023-2021-MTC.",
+      "certifications": ["CE", "RoHS"],
+      "warranty": "12 meses",
+      "moq": 20,
+      "unitPriceUSD": 280,
+      "images": [
+        "assets/img/products/scooters/spark-s1-1.jpg",
+        "assets/img/products/scooters/spark-s1-2.jpg",
+        "assets/img/products/scooters/spark-s1-3.jpg"
+      ],
+      "specs": {
+        "Motor": "800W BLDC",
+        "Batería": "60V 20Ah Litio",
+        "Velocidad máxima": "25 km/h",
+        "Autonomía": "45 km",
+        "Peso": "18 kg",
+        "Carga máxima": "120 kg"
+      }
+    },
+    {
+      "id": "zv-mt-001",
+      "slug": "moto-e2",
+      "category": "motos",
+      "name": "ZhiVolt Moto E2",
+      "featured": true,
+      "licenseRequired": true,
+      "licenseNote": "Supera el límite de potencia y velocidad de un VMP. Requiere licencia de conducir categoría correspondiente, placa y SOAT.",
+      "certifications": ["CE"],
+      "warranty": "12 meses",
+      "moq": 10,
+      "unitPriceUSD": 580,
+      "images": [
+        "assets/img/products/motos/moto-e2-1.jpg",
+        "assets/img/products/motos/moto-e2-2.jpg",
+        "assets/img/products/motos/moto-e2-3.jpg"
+      ],
+      "specs": {
+        "Motor": "2000W BLDC",
+        "Batería": "72V 32Ah Litio",
+        "Velocidad máxima": "70 km/h",
+        "Autonomía": "80 km",
+        "Peso": "85 kg",
+        "Carga máxima": "150 kg"
+      }
+    },
+    {
+      "id": "zv-mc-001",
+      "slug": "minicity-a2",
+      "category": "minicars",
+      "name": "ZhiVolt MiniCity A2",
+      "featured": true,
+      "licenseRequired": true,
+      "licenseNote": "Clasificado como vehículo motorizado de 4 ruedas. Requiere licencia de conducir, placa, tarjeta de propiedad y SOAT.",
+      "certifications": ["CE"],
+      "warranty": "12 meses",
+      "moq": 3,
+      "unitPriceUSD": 3200,
+      "images": [
+        "assets/img/products/minicars/minicity-a2-1.jpg",
+        "assets/img/products/minicars/minicity-a2-2.jpg",
+        "assets/img/products/minicars/minicity-a2-3.jpg"
+      ],
+      "specs": {
+        "Motor": "5000W",
+        "Batería": "72V 100Ah Litio",
+        "Velocidad máxima": "60 km/h",
+        "Autonomía": "120 km",
+        "Capacidad": "2 pasajeros",
+        "Peso": "650 kg"
+      }
+    }
+  ]
+}
