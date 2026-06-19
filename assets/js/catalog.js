@@ -1,8 +1,7 @@
 /**
- * catalog.js — T-12
- * Carga products.json y renderiza el grid de catalogo.html.
- * El filtrado por categoría (T-13) y "Agregar a cotización" funcional (T-18)
- * se conectan sobre este mismo render, en archivos/tareas posteriores.
+ * catalog.js — T-12, T-13
+ * Carga products.json, renderiza el grid y filtra por categoría.
+ * "Agregar a cotización" funcional se conecta aquí en T-18 (Sprint 3).
  */
 
 const ZV_PRODUCTS_URL = 'assets/data/products.json';
@@ -71,8 +70,35 @@ async function zvInitCatalog() {
   }
 }
 
+function zvInitCategoryFilters() {
+  const filterBar = document.getElementById('zvCategoryFilters');
+  const emptyMsg = document.getElementById('zvCatalogEmpty');
+  if (!filterBar) return;
+
+  filterBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('.zv-filter-btn');
+    if (!btn) return;
+
+    filterBar.querySelectorAll('.zv-filter-btn').forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const category = btn.dataset.category;
+    const cols = document.querySelectorAll('.zv-product-col');
+    let visibleCount = 0;
+
+    cols.forEach((col) => {
+      const matches = category === 'all' || col.dataset.category === category;
+      col.classList.toggle('d-none', !matches);
+      if (matches) visibleCount++;
+    });
+
+    emptyMsg.classList.toggle('d-none', visibleCount > 0);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('zvCatalogGrid')) {
     zvInitCatalog();
+    zvInitCategoryFilters();
   }
 });
