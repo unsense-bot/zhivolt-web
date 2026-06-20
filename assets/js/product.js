@@ -1,8 +1,9 @@
 /**
- * product.js — T-15, T-16
- * Lee ?id= de la URL, busca el producto en products.json, renderiza info básica
- * y la galería de imágenes (hasta 5) con thumbnails clicables.
- * Tabla de specs (T-17) y botón funcional (T-18) se conectan después.
+ * product.js — T-15, T-16, T-17
+ * Lee ?id= de la URL, busca el producto en products.json, renderiza info básica,
+ * galería de imágenes (hasta 5) con thumbnails clicables y ficha técnica dinámica.
+ * Botón funcional de "Agregar a cotización" (T-18) se conecta en Sprint 3,
+ * cuando exista quote-cart.js.
  */
 
 const ZV_PRODUCTS_URL = "assets/data/products.json";
@@ -40,7 +41,9 @@ function zvRenderProductBasicInfo(product, categories) {
     `${licenseHtml} <span class="zv-license-note-inline">${product.licenseNote || ""}</span>`;
 
   document.getElementById("zvAddToQuoteBtn").dataset.productId = product.id;
+
   zvRenderGallery(product);
+  zvRenderSpecTable(product);
 }
 
 const ZV_MAX_GALLERY_IMAGES = 5;
@@ -89,6 +92,32 @@ function zvRenderGallery(product) {
       setMainImage(btn.dataset.src);
     });
   });
+}
+
+/**
+ * Renderiza la ficha técnica iterando las claves del objeto `specs`.
+ * No se hardcodean nombres de campo: cada categoría (scooter, moto, minicar)
+ * trae specs distintas en products.json, y este enfoque no requiere
+ * cambios de código cuando lleguen los 15 productos reales.
+ */
+function zvRenderSpecTable(product) {
+  const grid = document.getElementById("zvProductSpecsGrid");
+  const entries = Object.entries(product.specs || {});
+
+  if (!entries.length) {
+    grid.innerHTML = `<p class="zv-spec-empty">Ficha técnica no disponible para este modelo.</p>`;
+    return;
+  }
+
+  grid.innerHTML = entries
+    .map(
+      ([key, value]) => `
+      <div class="zv-spec-item">
+        <span class="zv-spec-key">${key}</span>
+        <span class="zv-spec-value">${value}</span>
+      </div>`,
+    )
+    .join("");
 }
 
 async function zvInitProductPage() {
