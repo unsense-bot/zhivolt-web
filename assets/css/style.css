@@ -1048,99 +1048,6 @@ p {
   margin-top: 12px;
 }
 
-.zv-product-detail-price {
-  font-family: var(--zv-font-display);
-  font-size: var(--zv-text-4xl);
-  font-weight: 700;
-  color: var(--zv-navy-900);
-  margin-top: 18px;
-  margin-bottom: 2px;
-}
-
-.zv-product-detail-price span {
-  font-family: var(--zv-font-body);
-  font-size: var(--zv-text-base);
-  font-weight: 400;
-  color: var(--zv-text-muted);
-}
-
-.zv-license-note-inline {
-  font-size: var(--zv-text-xs);
-  color: var(--zv-text-muted);
-  margin-left: 6px;
-}
-
-.zv-product-meta-list {
-  list-style: none;
-  padding: 0;
-  margin: 22px 0 0;
-}
-
-.zv-product-meta-list li {
-  padding: 10px 0;
-  border-bottom: 1px solid var(--zv-border-light);
-  font-size: var(--zv-text-sm);
-  color: var(--zv-text-secondary);
-}
-
-.zv-product-meta-list i {
-  width: 20px;
-  color: var(--zv-steel-500);
-  margin-right: 8px;
-}
-
-/* ============================================== */
-/* PRODUCT DETAIL — T-15                            */
-/* ============================================== */
-
-.zv-breadcrumb {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0 0 8px;
-  font-size: var(--zv-text-sm);
-  gap: 6px;
-}
-
-.zv-breadcrumb li:not(:last-child)::after {
-  content: "/";
-  margin-left: 6px;
-  color: var(--zv-border-light);
-}
-
-.zv-breadcrumb a {
-  color: var(--zv-text-muted);
-  text-decoration: none;
-}
-
-.zv-breadcrumb a:hover {
-  color: var(--zv-steel-500);
-}
-
-.zv-breadcrumb .active {
-  color: var(--zv-text-primary);
-  font-weight: 500;
-}
-
-.zv-gallery-main {
-  border-radius: var(--zv-radius-lg);
-  overflow: hidden;
-  background-color: var(--zv-neutral-200);
-}
-
-.zv-gallery-main-img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  display: block;
-}
-
-.zv-gallery-thumbs {
-  display: flex;
-  gap: 10px;
-  margin-top: 12px;
-}
-
 .zv-gallery-thumb-btn {
   width: 72px;
   height: 72px;
@@ -1208,4 +1115,65 @@ p {
   width: 20px;
   color: var(--zv-steel-500);
   margin-right: 8px;
+}
+
+/* ============================================== */
+/* PRODUCT SPECS TABLE — T-17                       */
+/* ============================================== */
+
+.zv-spec-table-wrap {
+  background-color: var(--zv-white);
+  border: 1px solid var(--zv-border-light);
+  border-radius: var(--zv-radius-lg);
+  padding: 32px;
+}
+
+.zv-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 32px;
+  margin-top: 8px;
+}
+
+.zv-spec-item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--zv-border-light);
+}
+
+.zv-spec-key {
+  display: block;
+  font-size: var(--zv-text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--zv-text-muted);
+  margin-bottom: 4px;
+}
+
+.zv-spec-value {
+  display: block;
+  font-family: var(--zv-font-display);
+  font-size: var(--zv-text-base);
+  font-weight: 600;
+  color: var(--zv-navy-900);
+}
+
+.zv-spec-empty {
+  color: var(--zv-text-muted);
+  font-size: var(--zv-text-sm);
+  margin-top: 8px;
+}
+
+@media (max-width: 991.98px) {
+  .zv-spec-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .zv-spec-grid {
+    grid-template-columns: 1fr;
+  }
+  .zv-spec-table-wrap {
+    padding: 24px 20px;
+  }
 }
