@@ -4,28 +4,21 @@
  * galería de imágenes (hasta 5) con thumbnails clicables y ficha técnica dinámica.
  * Botón funcional de "Agregar a cotización" (T-18) se conecta en Sprint 3,
  * cuando exista quote-cart.js.
+ *
+ * Usa zvFormatUSD y zvGetCategoryName definidas en main.js (cargado antes que
+ * este archivo en producto.html) en vez de duplicarlas localmente.
  */
 
 const ZV_PRODUCTS_URL = "assets/data/products.json";
 const ZV_PLACEHOLDER_IMG =
   "https://placehold.co/600x450/1A2D42/F2EFEB?text=ZhiVolt";
 
-const zvFormatUSD = (value) =>
-  new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  }).format(value);
-
 function zvRenderProductBasicInfo(product, categories) {
-  const category = categories.find((c) => c.id === product.category);
-
   document.getElementById("zvPageTitle").textContent =
     `${product.name} | ZhiVolt`;
   document.getElementById("zvBreadcrumbCurrent").textContent = product.name;
-  document.getElementById("zvProductCategory").textContent = category
-    ? category.name
-    : product.category;
+  document.getElementById("zvProductCategory").textContent =
+    zvGetCategoryName(product.category, categories);
   document.getElementById("zvProductName").textContent = product.name;
   document.getElementById("zvProductPrice").innerHTML =
     `Desde ${zvFormatUSD(product.unitPriceUSD)} <span>/ unidad</span>`;
