@@ -2,20 +2,15 @@
  * catalog.js — T-12, T-13
  * Carga products.json, renderiza el grid y filtra por categoría.
  * "Agregar a cotización" funcional se conecta aquí en T-18 (Sprint 3).
+ *
+ * Usa zvFormatUSD y zvGetCategoryName definidas en main.js (cargado antes que
+ * este archivo en catalogo.html) en vez de duplicarlas localmente.
  */
 
 const ZV_PRODUCTS_URL = 'assets/data/products.json';
 const ZV_PLACEHOLDER_IMG = 'https://placehold.co/400x300/1A2D42/F2EFEB?text=ZhiVolt';
 
 let zvCatalogData = null; // cache en memoria, la usará T-13 para filtrar sin volver a hacer fetch
-
-const zvFormatUSD = (value) =>
-  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
-
-function zvCategoryName(categoryId) {
-  const cat = zvCatalogData?.categories.find((c) => c.id === categoryId);
-  return cat ? cat.name : categoryId;
-}
 
 function zvBuildProductCard(product) {
   const firstImage = product.images?.[0] || ZV_PLACEHOLDER_IMG;
@@ -29,7 +24,7 @@ function zvBuildProductCard(product) {
         <div class="zv-product-img-wrap">
           <img src="${firstImage}" alt="${product.name}" class="zv-product-img"
                onerror="this.onerror=null;this.src='${ZV_PLACEHOLDER_IMG}';">
-          <span class="zv-badge zv-badge--category">${zvCategoryName(product.category)}</span>
+          <span class="zv-badge zv-badge--category">${zvGetCategoryName(product.category, zvCatalogData?.categories)}</span>
         </div>
         <div class="zv-product-body">
           <h5>${product.name}</h5>

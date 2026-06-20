@@ -140,7 +140,29 @@
       </div>
     </section>
 
-    <!-- "VEHÍCULOS DESTACADOS" — T-19 (Sprint 2): requiere fetch() a products.json -->
+    <!-- "VEHÍCULOS DESTACADOS" — T-19 -->
+    <section class="zv-section zv-section--light">
+      <div class="zv-container">
+        <span class="zv-eyebrow">Catálogo mayorista</span>
+        <h2 class="zv-section-title">Vehículos destacados</h2>
+        <p class="mb-5" style="max-width:620px;">Una selección de nuestros modelos con mayor rotación entre distribuidores. Precios referenciales en USD; revisa la ficha técnica de cada vehículo para conocer condiciones de compra mayorista.</p>
+
+        <div id="zvFeaturedGrid" class="row g-4">
+          <!-- index.js inyecta aquí las tarjetas destacadas -->
+        </div>
+
+        <p id="zvFeaturedEmpty" class="text-center text-muted d-none mt-4">
+          No hay vehículos destacados disponibles por el momento.
+        </p>
+        <p id="zvFeaturedError" class="text-center text-danger d-none mt-4">
+          No se pudieron cargar los vehículos destacados.
+        </p>
+
+        <div class="text-center mt-4">
+          <a href="catalogo.html" class="zv-btn zv-btn--outline-navy">Ver catálogo completo</a>
+        </div>
+      </div>
+    </section>
 
     <!-- "VENTAJA REGULATORIA" — T-09 -->
     <section class="zv-section zv-section--dark zv-diagonal-top">
@@ -293,6 +315,9 @@
 
   <!-- Lógica compartida del proyecto -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Lógica específica de la página de inicio (Vehículos Destacados) -->
+  <script src="assets/js/index.js"></script>
 
 </body>
 </html>
