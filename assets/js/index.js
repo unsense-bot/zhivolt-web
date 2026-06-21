@@ -10,7 +10,8 @@
  */
 
 const ZV_PRODUCTS_URL = "assets/data/products.json";
-const ZV_PLACEHOLDER_IMG = "https://placehold.co/400x300/1A2D42/F2EFEB?text=ZhiVolt";
+const ZV_PLACEHOLDER_IMG =
+  "https://placehold.co/400x300/1A2D42/F2EFEB?text=ZhiVolt";
 const ZV_MAX_FEATURED = 6;
 
 function zvBuildFeaturedCard(product, categories) {
@@ -54,14 +55,19 @@ async function zvInitFeatured() {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
     const data = await response.json();
-    const featured = data.products.filter((p) => p.featured).slice(0, ZV_MAX_FEATURED);
+    const featured = data.products
+      .filter((p) => p.featured)
+      .slice(0, ZV_MAX_FEATURED);
 
     if (!featured.length) {
       emptyMsg.classList.remove("d-none");
       return;
     }
 
-    grid.innerHTML = featured.map((p) => zvBuildFeaturedCard(p, data.categories)).join("");
+    grid.innerHTML = featured
+      .map((p) => zvBuildFeaturedCard(p, data.categories))
+      .join("");
+    zvInitAddToQuoteButtons(grid); // pinta "Agregar"/"Quitar" según el carrito ya guardado (T-18)
   } catch (error) {
     console.error("Error al cargar los vehículos destacados:", error);
     errorMsg.classList.remove("d-none");

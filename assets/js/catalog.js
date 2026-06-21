@@ -7,8 +7,9 @@
  * este archivo en catalogo.html) en vez de duplicarlas localmente.
  */
 
-const ZV_PRODUCTS_URL = 'assets/data/products.json';
-const ZV_PLACEHOLDER_IMG = 'https://placehold.co/400x300/1A2D42/F2EFEB?text=ZhiVolt';
+const ZV_PRODUCTS_URL = "assets/data/products.json";
+const ZV_PLACEHOLDER_IMG =
+  "https://placehold.co/400x300/1A2D42/F2EFEB?text=ZhiVolt";
 
 let zvCatalogData = null; // cache en memoria, la usará T-13 para filtrar sin volver a hacer fetch
 
@@ -43,16 +44,17 @@ function zvBuildProductCard(product) {
 }
 
 function zvRenderCatalog(products) {
-  const grid = document.getElementById('zvCatalogGrid');
-  const emptyMsg = document.getElementById('zvCatalogEmpty');
+  const grid = document.getElementById("zvCatalogGrid");
+  const emptyMsg = document.getElementById("zvCatalogEmpty");
   if (!grid) return;
 
-  grid.innerHTML = products.map(zvBuildProductCard).join('');
-  emptyMsg.classList.toggle('d-none', products.length > 0);
+  grid.innerHTML = products.map(zvBuildProductCard).join("");
+  emptyMsg.classList.toggle("d-none", products.length > 0);
+  zvInitAddToQuoteButtons(grid); // pinta "Agregar"/"Quitar" según el carrito ya guardado (T-18)
 }
 
 async function zvInitCatalog() {
-  const errorMsg = document.getElementById('zvCatalogError');
+  const errorMsg = document.getElementById("zvCatalogError");
   try {
     const response = await fetch(ZV_PRODUCTS_URL);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -60,39 +62,41 @@ async function zvInitCatalog() {
     zvCatalogData = await response.json();
     zvRenderCatalog(zvCatalogData.products);
   } catch (error) {
-    console.error('Error al cargar el catálogo:', error);
-    if (errorMsg) errorMsg.classList.remove('d-none');
+    console.error("Error al cargar el catálogo:", error);
+    if (errorMsg) errorMsg.classList.remove("d-none");
   }
 }
 
 function zvInitCategoryFilters() {
-  const filterBar = document.getElementById('zvCategoryFilters');
-  const emptyMsg = document.getElementById('zvCatalogEmpty');
+  const filterBar = document.getElementById("zvCategoryFilters");
+  const emptyMsg = document.getElementById("zvCatalogEmpty");
   if (!filterBar) return;
 
-  filterBar.addEventListener('click', (e) => {
-    const btn = e.target.closest('.zv-filter-btn');
+  filterBar.addEventListener("click", (e) => {
+    const btn = e.target.closest(".zv-filter-btn");
     if (!btn) return;
 
-    filterBar.querySelectorAll('.zv-filter-btn').forEach((b) => b.classList.remove('active'));
-    btn.classList.add('active');
+    filterBar
+      .querySelectorAll(".zv-filter-btn")
+      .forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
 
     const category = btn.dataset.category;
-    const cols = document.querySelectorAll('.zv-product-col');
+    const cols = document.querySelectorAll(".zv-product-col");
     let visibleCount = 0;
 
     cols.forEach((col) => {
-      const matches = category === 'all' || col.dataset.category === category;
-      col.classList.toggle('d-none', !matches);
+      const matches = category === "all" || col.dataset.category === category;
+      col.classList.toggle("d-none", !matches);
       if (matches) visibleCount++;
     });
 
-    emptyMsg.classList.toggle('d-none', visibleCount > 0);
+    emptyMsg.classList.toggle("d-none", visibleCount > 0);
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('zvCatalogGrid')) {
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.getElementById("zvCatalogGrid")) {
     zvInitCatalog();
     zvInitCategoryFilters();
   }
