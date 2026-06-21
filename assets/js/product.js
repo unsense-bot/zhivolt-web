@@ -17,8 +17,10 @@ function zvRenderProductBasicInfo(product, categories) {
   document.getElementById("zvPageTitle").textContent =
     `${product.name} | ZhiVolt`;
   document.getElementById("zvBreadcrumbCurrent").textContent = product.name;
-  document.getElementById("zvProductCategory").textContent =
-    zvGetCategoryName(product.category, categories);
+  document.getElementById("zvProductCategory").textContent = zvGetCategoryName(
+    product.category,
+    categories,
+  );
   document.getElementById("zvProductName").textContent = product.name;
   document.getElementById("zvProductPrice").innerHTML =
     `Desde ${zvFormatUSD(product.unitPriceUSD)} <span>/ unidad</span>`;
@@ -35,8 +37,28 @@ function zvRenderProductBasicInfo(product, categories) {
 
   document.getElementById("zvAddToQuoteBtn").dataset.productId = product.id;
 
+  zvRenderDescription(product);
   zvRenderGallery(product);
   zvRenderSpecTable(product);
+}
+
+/**
+ * Muestra el párrafo de descripción comercial si el producto lo trae.
+ * Campo opcional en products.json: si no existe, la sección queda oculta
+ * (compatible con los productos de ejemplo que no lo tienen).
+ */
+function zvRenderDescription(product) {
+  const wrap = document.getElementById("zvProductDescription");
+  const text = document.getElementById("zvProductDescriptionText");
+  if (!wrap || !text) return;
+
+  if (!product.description) {
+    wrap.classList.add("d-none");
+    return;
+  }
+
+  text.textContent = product.description;
+  wrap.classList.remove("d-none");
 }
 
 const ZV_MAX_GALLERY_IMAGES = 5;
