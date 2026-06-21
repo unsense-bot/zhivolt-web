@@ -1177,3 +1177,36 @@ p {
     padding: 24px 20px;
   }
 }
+
+/* ============================================== */
+/* PRODUCT IMAGES — FIX: cover → contain            */
+/* Evita recortar el producto cuando la foto no      */
+/* coincide exactamente con la proporción del cuadro */
+/* ============================================== */
+
+.zv-gallery-main {
+  background-color: var(--zv-white);
+}
+
+.zv-product-img-wrap {
+  background-color: var(--zv-white);
+}
+
+.zv-product-img {
+  object-fit: contain;
+  padding: 12px;
+}
+
+.zv-gallery-main-img {
+  object-fit: contain;
+  padding: 24px;
+}
+
+.zv-gallery-thumb-btn {
+  background-color: var(--zv-white);
+}
+
+.zv-gallery-thumb-btn img {
+  object-fit: contain;
+  padding: 6px;
+}

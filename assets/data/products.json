@@ -3,13 +3,29 @@
     "version": "1.0.0-dev",
     "currency": "USD",
     "priceDisclaimer": "Precios referenciales en USD, sujetos a tipo de cambio vigente. El precio final se confirma en la cotización formal.",
-    "note": "Catálogo de ejemplo (3 productos) mientras se definen los 15 modelos reales. Estructura definitiva, no tocar sin actualizar catalog.js y producto.html."
+    "note": "Catálogo en construcción: 3 productos de ejemplo + primer producto real (OKAI ES40 Neon Ultra). Estructura definitiva, no tocar sin actualizar catalog.js y producto.html."
   },
   "categories": [
-    { "id": "scooters", "name": "Scooters Eléctricos", "icon": "fa-solid fa-person-skating" },
-    { "id": "ebikes", "name": "Bicicletas Eléctricas", "icon": "fa-solid fa-bicycle" },
-    { "id": "motos", "name": "Motos y Trimotos", "icon": "fa-solid fa-motorcycle" },
-    { "id": "minicars", "name": "Miniautomóviles", "icon": "fa-solid fa-car-side" }
+    {
+      "id": "scooters",
+      "name": "Scooters Eléctricos",
+      "icon": "fa-solid fa-person-skating"
+    },
+    {
+      "id": "ebikes",
+      "name": "Bicicletas Eléctricas",
+      "icon": "fa-solid fa-bicycle"
+    },
+    {
+      "id": "motos",
+      "name": "Motos y Trimotos",
+      "icon": "fa-solid fa-motorcycle"
+    },
+    {
+      "id": "minicars",
+      "name": "Miniautomóviles",
+      "icon": "fa-solid fa-car-side"
+    }
   ],
   "products": [
     {
@@ -88,6 +104,50 @@
         "Autonomía": "120 km",
         "Capacidad": "2 pasajeros",
         "Peso": "650 kg"
+      }
+    },
+    {
+      "id": "zv-sc-002",
+      "slug": "okai-es40-neon-ultra",
+      "category": "scooters",
+      "name": "OKAI ES40 Neon Ultra",
+      "featured": true,
+      "licenseRequired": false,
+      "licenseNote": "Clasificado como VMP (hasta 25 km/h). No requiere licencia, placa ni SOAT, según D.S. N.º 023-2021-MTC.",
+      "certifications": [],
+      "warranty": "6 meses",
+      "moq": 10,
+      "unitPriceUSD": 754,
+      "description": "Conquista la ciudad con el OKAI ES40 Neon Ultra: motor de 500 W (máxima potencia hasta 1000 W), velocidad de 25 km/h y hasta 70 km de autonomía para tu día a día. Disfruta un manejo suave con suspensión hidráulica delantera, amortiguador trasero ajustable y llantas tubeless de 10″, más luces direccionales y frenos delantero de tambor + electrónico para mayor seguridad. Controla todo desde la app OKAI y llega cómodo con carga útil hasta 120 kg.",
+      "images": [
+        "assets/img/products/scooters/okai-es40-neon-ultra-1.png",
+        "assets/img/products/scooters/okai-es40-neon-ultra-2.png",
+        "assets/img/products/scooters/okai-es40-neon-ultra-3.png",
+        "assets/img/products/scooters/okai-es40-neon-ultra-4.png"
+      ],
+      "specs": {
+        "Autonomía": "70 km",
+        "Velocidad máxima": "25 km/h",
+        "Potencia nominal": "500 W",
+        "Potencia máxima": "1000 W",
+        "Peso máximo": "120 kg",
+        "Peso neto": "23 kg",
+        "Pendiente superable": "25%",
+        "Suspensión": "Sí (delantera hidráulica y trasera de resorte)",
+        "Batería": "Litio, 47 V, 15.6 Ah",
+        "Frenos": "Tambor delantero y electrónico regenerativo trasero",
+        "Ruedas": "10\" tubeless",
+        "Timbre": "Sí",
+        "Luces": "Delantera, trasera y laterales LED",
+        "Pantalla LED": "Sí (estado de batería, modo de velocidad, km/h y otros parámetros)",
+        "Carga completa": "3 a 6 horas",
+        "Dimensiones": "117 × 57 × 123 cm",
+        "Dimensiones plegado": "117 × 57 × 53 cm",
+        "Personalizable": "Sí (permite instalación de bolso delantero)",
+        "Color": "Negro y azul",
+        "Edad recomendada": "+16 años",
+        "App": "Sí (App OKAI: luces ambientales, bloqueo/desbloqueo, modos de conducción, control crucero, estado de batería, mantenimiento)",
+        "NFC": "Sí (tarjeta NFC)"
       }
     }
   ]
