@@ -36,6 +36,7 @@ function zvRenderProductBasicInfo(product, categories) {
     `${licenseHtml} <span class="zv-license-note-inline">${product.licenseNote || ""}</span>`;
 
   document.getElementById("zvAddToQuoteBtn").dataset.productId = product.id;
+  zvInitAddToQuoteButtons(); // pinta "Agregar"/"Quitar" según el carrito ya guardado (T-18)
 
   zvRenderDescription(product);
   zvRenderGallery(product);
