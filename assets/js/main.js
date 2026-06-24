@@ -21,6 +21,12 @@ const ZV_CART_STORAGE_KEY = "zhivolt_quote_cart";
 const ZV_PRODUCTS_URL = "assets/data/products.json";
 
 /**
+ * Endpoint de Formspree para el formulario de cotización (T-24).
+ * Reemplaza el ID con el de tu formulario real en https://formspree.io
+ */
+const ZV_FORMSPREE_ENDPOINT = "https://formspree.io/f/REEMPLAZAR_CON_TU_ID";
+
+/**
  * Formatea un número como precio en USD (sin decimales).
  * Usado por catalog.js, product.js e index.js para mostrar precios referenciales.
  */
