@@ -1210,3 +1210,128 @@ p {
   object-fit: contain;
   padding: 6px;
 }
+
+/* ============================================== */
+/* CART SIDEBAR (OFFCANVAS) — T-21                  */
+/* ============================================== */
+
+.zv-cart-offcanvas {
+  --bs-offcanvas-width: 420px;
+  --bs-offcanvas-bg: var(--zv-navy-900);
+  --bs-offcanvas-color: var(--zv-white);
+  --bs-offcanvas-border-color: var(--zv-navy-700);
+  display: flex;
+  flex-direction: column;
+}
+
+.zv-cart-offcanvas .offcanvas-header {
+  border-bottom: 1px solid var(--zv-navy-700);
+  padding: 20px 24px;
+}
+
+.zv-cart-offcanvas .offcanvas-title {
+  font-family: var(--zv-font-display);
+  font-size: var(--zv-text-base);
+  font-weight: 600;
+}
+
+.zv-cart-offcanvas .offcanvas-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.zv-cart-offcanvas .offcanvas-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--zv-navy-700);
+}
+
+/* Item row */
+.zv-cart-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--zv-navy-700);
+}
+
+.zv-cart-item-img-wrap {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  background-color: var(--zv-white);
+  border-radius: var(--zv-radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zv-cart-item-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6px;
+}
+
+.zv-cart-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.zv-cart-item-name {
+  font-family: var(--zv-font-display);
+  font-size: var(--zv-text-sm);
+  font-weight: 600;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.zv-cart-item-price {
+  font-size: var(--zv-text-sm);
+  color: var(--zv-steel-400);
+  margin-bottom: 2px;
+}
+
+.zv-cart-item-moq {
+  font-size: var(--zv-text-xs);
+  color: var(--zv-steel-500);
+  margin-bottom: 0;
+}
+
+.zv-cart-item-remove {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: var(--zv-steel-500);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--zv-radius-sm);
+  transition: var(--zv-transition);
+  line-height: 1;
+}
+
+.zv-cart-item-remove:hover {
+  color: var(--zv-white);
+  background-color: var(--zv-navy-700);
+}
+
+/* Estado vacío */
+.zv-cart-empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--zv-steel-500);
+}
+
+.zv-cart-empty i {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  display: block;
+  opacity: 0.4;
+}
+
+.zv-cart-empty p {
+  margin-bottom: 8px;
+}

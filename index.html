@@ -534,5 +534,52 @@
 
     <!-- Lógica específica de la página de inicio (Vehículos Destacados) -->
     <script src="assets/js/index.js"></script>
+
+    <!-- CARRITO SIDEBAR — T-21 -->
+    <div
+      class="offcanvas offcanvas-end zv-cart-offcanvas"
+      tabindex="-1"
+      id="zvCartOffcanvas"
+      aria-labelledby="zvCartOffcanvasLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="zvCartOffcanvasLabel">
+          <i class="fa-solid fa-cart-shopping me-2" aria-hidden="true"></i>Mi
+          cotización
+        </h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Cerrar carrito de cotización"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <div id="zvCartItems">
+          <!-- quote-cart.js inyecta aquí las filas de productos -->
+        </div>
+        <div id="zvCartEmpty" class="zv-cart-empty d-none">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          <p>Tu lista de cotización está vacía.</p>
+          <p class="small">
+            Agrega vehículos desde el catálogo para solicitar una cotización
+            formal.
+          </p>
+        </div>
+      </div>
+      <div class="offcanvas-footer d-none" id="zvCartFooter">
+        <p class="zv-price-disclaimer mb-3">
+          Los precios mostrados son referenciales. El precio final se confirma
+          en la cotización formal.
+        </p>
+        <button
+          type="button"
+          class="zv-btn zv-btn--primary w-100"
+          id="zvRequestQuoteBtn"
+        >
+          Solicitar cotización
+        </button>
+      </div>
+    </div>
   </body>
 </html>

@@ -6,8 +6,9 @@
  *   2. Inicializar el badge del carrito leyendo localStorage (lectura defensiva:
  *      si todavía no existe el carrito, simplemente muestra 0).
  *   3. Mostrar el año actual en el copyright del footer.
- *   4. Exponer utilidades de formato/datos reutilizadas por catalog.js, product.js
- *      e index.js (zvFormatUSD, zvGetCategoryName), para no duplicarlas por archivo.
+ *   4. Exponer utilidades y constantes compartidas por catalog.js, product.js,
+ *      index.js y quote-cart.js (zvFormatUSD, zvGetCategoryName, ZV_PRODUCTS_URL),
+ *      para no duplicarlas por archivo.
  *   5. Refrescar el badge en tiempo real cuando el carrito cambia (T-22),
  *      escuchando el evento "zv:cartUpdated" que dispara quote-cart.js (T-20).
  *
@@ -17,6 +18,7 @@
  */
 
 const ZV_CART_STORAGE_KEY = "zhivolt_quote_cart";
+const ZV_PRODUCTS_URL = "assets/data/products.json";
 
 /**
  * Formatea un número como precio en USD (sin decimales).
