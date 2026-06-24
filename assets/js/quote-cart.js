@@ -104,3 +104,108 @@ document.addEventListener("click", (e) => {
 document.addEventListener("zv:cartUpdated", () => {
   zvInitAddToQuoteButtons();
 });
+
+/* ============================================== */
+/* SIDEBAR OFFCANVAS — T-21                         */
+/* ============================================== */
+
+let zvProductsCache = null; // evita refetch en cada apertura del sidebar
+
+async function zvGetProductsData() {
+  if (zvProductsCache) return zvProductsCache;
+  try {
+    const res = await fetch(ZV_PRODUCTS_URL);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    zvProductsCache = await res.json();
+    return zvProductsCache;
+  } catch (err) {
+    console.error(
+      "quote-cart.js: no se pudo cargar products.json para el sidebar:",
+      err,
+    );
+    return null;
+  }
+}
+
+function zvBuildCartItemRow(product) {
+  const img = product.images?.[0] || "";
+  return `
+    <div class="zv-cart-item" data-product-id="${product.id}">
+      <div class="zv-cart-item-img-wrap">
+        <img src="${img}" alt="${product.name}"
+             onerror="this.onerror=null;this.style.display='none'">
+      </div>
+      <div class="zv-cart-item-info">
+        <p class="zv-cart-item-name">${product.name}</p>
+        <p class="zv-cart-item-price">Desde ${zvFormatUSD(product.unitPriceUSD)} / unidad</p>
+        <p class="zv-cart-item-moq">MOQ: ${product.moq} unidades</p>
+      </div>
+      <button type="button" class="zv-cart-item-remove" data-product-id="${product.id}"
+              aria-label="Quitar ${product.name} de la cotización">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>`;
+}
+
+async function zvRenderCartSidebar() {
+  const itemsWrap = document.getElementById("zvCartItems");
+  const emptyState = document.getElementById("zvCartEmpty");
+  const footer = document.getElementById("zvCartFooter");
+  if (!itemsWrap) return;
+
+  const cartIds = zvGetCartItems();
+
+  if (!cartIds.length) {
+    itemsWrap.innerHTML = "";
+    emptyState?.classList.remove("d-none");
+    footer?.classList.add("d-none");
+    return;
+  }
+
+  emptyState?.classList.add("d-none");
+  footer?.classList.remove("d-none");
+
+  const data = await zvGetProductsData();
+  if (!data) {
+    itemsWrap.innerHTML =
+      '<p class="text-danger small p-3">No se pudieron cargar los productos.</p>';
+    return;
+  }
+
+  const rows = cartIds
+    .map((id) => data.products.find((p) => p.id === id))
+    .filter(Boolean)
+    .map(zvBuildCartItemRow)
+    .join("");
+
+  itemsWrap.innerHTML = rows;
+}
+
+// Los listeners de clic en document funcionan a nivel global y no requieren
+// que el offcanvas exista aún, por eso van fuera de DOMContentLoaded.
+
+// Quitar producto desde el sidebar (delegado en el contenedor de items)
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".zv-cart-item-remove");
+  if (!btn) return;
+  zvRemoveFromCart(btn.dataset.productId);
+});
+
+// El offcanvas se inicializa dentro de DOMContentLoaded porque el elemento
+// #zvCartOffcanvas aparece en el HTML después de los <script>, y el browser
+// aún no lo ha parseado cuando este archivo se ejecuta por primera vez.
+// DOMContentLoaded garantiza que todo el HTML esté disponible.
+document.addEventListener("DOMContentLoaded", () => {
+  const zvCartOffcanvasEl = document.getElementById("zvCartOffcanvas");
+  if (!zvCartOffcanvasEl) return;
+
+  // Abre el sidebar → renderiza el contenido del carrito
+  zvCartOffcanvasEl.addEventListener("show.bs.offcanvas", zvRenderCartSidebar);
+
+  // Si el carrito cambia mientras el sidebar está abierto, re-renderiza
+  document.addEventListener("zv:cartUpdated", () => {
+    if (zvCartOffcanvasEl.classList.contains("show")) {
+      zvRenderCartSidebar();
+    }
+  });
+});

@@ -9,7 +9,6 @@
  * este archivo en index.html) en vez de duplicarlas localmente.
  */
 
-const ZV_PRODUCTS_URL = "assets/data/products.json";
 const ZV_PLACEHOLDER_IMG =
   "https://placehold.co/400x300/1A2D42/F2EFEB?text=ZhiVolt";
 const ZV_MAX_FEATURED = 6;
