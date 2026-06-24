@@ -517,6 +517,223 @@
     </footer>
 
     <!-- Bootstrap 5.3.8 Bundle JS (incluye Popper) -->
+    <!-- FORMULARIO DE COTIZACIÓN — T-23/T-24/T-25 -->
+    <div
+      class="modal fade"
+      id="zvQuoteModal"
+      tabindex="-1"
+      aria-labelledby="zvQuoteModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content zv-quote-modal">
+          <!-- Estado: Formulario -->
+          <div id="zvQuoteFormState">
+            <div class="modal-header">
+              <div>
+                <h5 class="modal-title" id="zvQuoteModalLabel">
+                  Solicitar cotización formal
+                </h5>
+                <p class="zv-quote-modal-subtitle mb-0">
+                  Completa los datos de tu empresa y nuestro equipo te
+                  contactará en menos de 24 horas hábiles.
+                </p>
+              </div>
+              <button
+                type="button"
+                class="btn-close btn-close-white ms-3"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar formulario de cotización"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="zv-quote-products mb-4" id="zvQuoteProductsSummary">
+                <!-- quote-cart.js inyecta aquí el resumen de productos -->
+              </div>
+              <form id="zvQuoteForm" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="zvFieldRuc" class="form-label"
+                      >RUC <span class="zv-required">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control zv-form-control"
+                      id="zvFieldRuc"
+                      name="ruc"
+                      maxlength="11"
+                      pattern="[0-9]{11}"
+                      placeholder="11 dígitos sin guiones"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Ingresa un RUC válido (11 dígitos).
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="zvFieldRazonSocial" class="form-label"
+                      >Razón social <span class="zv-required">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control zv-form-control"
+                      id="zvFieldRazonSocial"
+                      name="razon_social"
+                      placeholder="Nombre legal de tu empresa"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Este campo es obligatorio.
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="zvFieldCargo" class="form-label"
+                      >Cargo <span class="zv-required">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control zv-form-control"
+                      id="zvFieldCargo"
+                      name="cargo"
+                      placeholder="Ej: Gerente de compras"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Este campo es obligatorio.
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="zvFieldEmail" class="form-label"
+                      >Email corporativo
+                      <span class="zv-required">*</span></label
+                    >
+                    <input
+                      type="email"
+                      class="form-control zv-form-control"
+                      id="zvFieldEmail"
+                      name="email"
+                      placeholder="correo@tuempresa.com"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Ingresa un correo electrónico válido.
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="zvFieldTelefono" class="form-label"
+                      >Teléfono <span class="zv-required">*</span></label
+                    >
+                    <input
+                      type="tel"
+                      class="form-control zv-form-control"
+                      id="zvFieldTelefono"
+                      name="telefono"
+                      placeholder="+51 9XXXXXXXX"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Este campo es obligatorio.
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="zvFieldProyeccion" class="form-label"
+                      >Proyección de compra mensual
+                      <span class="zv-required">*</span></label
+                    >
+                    <select
+                      class="form-select zv-form-control"
+                      id="zvFieldProyeccion"
+                      name="proyeccion_mensual"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        Selecciona un rango
+                      </option>
+                      <option value="1 a 10 unidades">1 a 10 unidades</option>
+                      <option value="11 a 50 unidades">11 a 50 unidades</option>
+                      <option value="51 a 100 unidades">
+                        51 a 100 unidades
+                      </option>
+                      <option value="Más de 100 unidades">
+                        Más de 100 unidades
+                      </option>
+                    </select>
+                    <div class="invalid-feedback">Selecciona una opción.</div>
+                  </div>
+                  <div class="col-12">
+                    <label for="zvFieldComentarios" class="form-label"
+                      >Comentarios adicionales</label
+                    >
+                    <textarea
+                      class="form-control zv-form-control"
+                      id="zvFieldComentarios"
+                      name="comentarios"
+                      rows="3"
+                      placeholder="Plazos de entrega, condiciones de pago, modelos específicos, etc."
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="zv-quote-error d-none mt-3" id="zvQuoteError">
+                  <i
+                    class="fa-solid fa-triangle-exclamation me-2"
+                    aria-hidden="true"
+                  ></i>
+                  Ocurrió un error al enviar tu solicitud. Intenta nuevamente o
+                  escríbenos a
+                  <a href="mailto:ventas@zhivolt.pe">ventas@zhivolt.pe</a>.
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <p
+                class="zv-price-disclaimer me-auto mb-0"
+                style="max-width: 340px"
+              >
+                Al enviar, aceptas que ZhiVolt use estos datos para contactarte
+                con una propuesta comercial.
+              </p>
+              <button
+                type="button"
+                class="zv-btn zv-btn--outline-navy"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button
+                type="submit"
+                form="zvQuoteForm"
+                class="zv-btn zv-btn--primary"
+                id="zvQuoteSubmitBtn"
+              >
+                Enviar solicitud
+              </button>
+            </div>
+          </div>
+
+          <!-- Estado: Confirmación (T-25) -->
+          <div id="zvQuoteSuccessState" class="d-none">
+            <div class="modal-body zv-quote-success">
+              <div class="zv-quote-success-icon">
+                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+              </div>
+              <h4>¡Solicitud enviada!</h4>
+              <p>
+                Recibimos tu solicitud de cotización. Nuestro equipo de ventas
+                se pondrá en contacto contigo en menos de 24 horas hábiles al
+                correo que nos indicaste.
+              </p>
+              <button
+                type="button"
+                class="zv-btn zv-btn--primary mt-2"
+                data-bs-dismiss="modal"
+              >
+                Entendido
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

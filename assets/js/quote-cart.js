@@ -195,6 +195,122 @@ document.addEventListener("click", (e) => {
 // #zvCartOffcanvas aparece en el HTML después de los <script>, y el browser
 // aún no lo ha parseado cuando este archivo se ejecuta por primera vez.
 // DOMContentLoaded garantiza que todo el HTML esté disponible.
+/* ============================================== */
+/* FORMULARIO DE COTIZACIÓN — T-23 / T-24 / T-25   */
+/* ============================================== */
+
+async function zvPopulateQuoteProductsSummary() {
+  const summary = document.getElementById("zvQuoteProductsSummary");
+  if (!summary) return;
+
+  const ids = zvGetCartItems();
+  const data = await zvGetProductsData();
+  if (!data || !ids.length) {
+    summary.innerHTML = "";
+    return;
+  }
+
+  const products = ids
+    .map((id) => data.products.find((p) => p.id === id))
+    .filter(Boolean);
+
+  summary.innerHTML = `
+    <p class="zv-quote-products-label">Vehículos incluidos en esta cotización:</p>
+    <ul class="zv-quote-products-list">
+      ${products
+        .map(
+          (p) => `
+        <li>
+          <span class="zv-quote-product-name">${p.name}</span>
+          <span class="zv-quote-product-price">${zvFormatUSD(p.unitPriceUSD)}/u · MOQ ${p.moq} uds.</span>
+        </li>`,
+        )
+        .join("")}
+    </ul>`;
+}
+
+async function zvHandleQuoteSubmit() {
+  const form = document.getElementById("zvQuoteForm");
+  const submitBtn = document.getElementById("zvQuoteSubmitBtn");
+  const errorDiv = document.getElementById("zvQuoteError");
+
+  // Validación nativa de Bootstrap
+  if (!form.checkValidity()) {
+    form.classList.add("was-validated");
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Enviando…";
+  errorDiv.classList.add("d-none");
+
+  try {
+    const fd = new FormData(form);
+    const ids = zvGetCartItems();
+    const data = await zvGetProductsData();
+
+    const productosTexto = ids
+      .map((id) => {
+        const p = data?.products.find((p) => p.id === id);
+        return p
+          ? `${p.name} (${zvFormatUSD(p.unitPriceUSD)}/u, MOQ: ${p.moq})`
+          : id;
+      })
+      .join(" | ");
+
+    const payload = {
+      _subject: `Nueva cotización B2B — ${fd.get("razon_social")}`,
+      ruc: fd.get("ruc"),
+      razon_social: fd.get("razon_social"),
+      cargo: fd.get("cargo"),
+      email: fd.get("email"),
+      telefono: fd.get("telefono"),
+      proyeccion_mensual: fd.get("proyeccion_mensual"),
+      comentarios: fd.get("comentarios") || "—",
+      productos_solicitados: productosTexto,
+    };
+
+    const res = await fetch(ZV_FORMSPREE_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    // T-25: mostrar confirmación y limpiar carrito
+    document.getElementById("zvQuoteFormState").classList.add("d-none");
+    document.getElementById("zvQuoteSuccessState").classList.remove("d-none");
+    zvClearCart();
+  } catch (err) {
+    console.error("Error al enviar cotización:", err);
+    errorDiv.classList.remove("d-none");
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Enviar solicitud";
+  }
+}
+
+function zvResetQuoteModal() {
+  const form = document.getElementById("zvQuoteForm");
+  if (form) {
+    form.reset();
+    form.classList.remove("was-validated");
+  }
+
+  document.getElementById("zvQuoteFormState")?.classList.remove("d-none");
+  document.getElementById("zvQuoteSuccessState")?.classList.add("d-none");
+  document.getElementById("zvQuoteError")?.classList.add("d-none");
+
+  const submitBtn = document.getElementById("zvQuoteSubmitBtn");
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Enviar solicitud";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const zvCartOffcanvasEl = document.getElementById("zvCartOffcanvas");
   if (!zvCartOffcanvasEl) return;
@@ -208,4 +324,38 @@ document.addEventListener("DOMContentLoaded", () => {
       zvRenderCartSidebar();
     }
   });
+
+  /* ── FORMULARIO DE COTIZACIÓN — T-23 / T-24 / T-25 ── */
+
+  const zvQuoteModalEl = document.getElementById("zvQuoteModal");
+  if (!zvQuoteModalEl) return;
+
+  const zvQuoteModal = new bootstrap.Modal(zvQuoteModalEl);
+  const zvRequestQuoteBtn = document.getElementById("zvRequestQuoteBtn");
+  let zvOpenQuoteAfterClose = false;
+
+  // "Solicitar cotización" → poblar resumen → cerrar offcanvas → abrir modal
+  zvRequestQuoteBtn?.addEventListener("click", async () => {
+    await zvPopulateQuoteProductsSummary();
+    zvOpenQuoteAfterClose = true;
+    bootstrap.Offcanvas.getInstance(zvCartOffcanvasEl)?.hide();
+  });
+
+  // Esperar a que el offcanvas termine de cerrarse para abrir el modal sin solapamiento visual
+  zvCartOffcanvasEl.addEventListener("hidden.bs.offcanvas", () => {
+    if (!zvOpenQuoteAfterClose) return;
+    zvOpenQuoteAfterClose = false;
+    zvQuoteModal.show();
+  });
+
+  // Resetear el modal cada vez que se cierre (formulario limpio para la próxima apertura)
+  zvQuoteModalEl.addEventListener("hidden.bs.modal", zvResetQuoteModal);
+
+  // Envío del formulario (T-24: Formspree / T-25: confirmación + limpiar carrito)
+  document
+    .getElementById("zvQuoteForm")
+    ?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      await zvHandleQuoteSubmit();
+    });
 });
