@@ -1498,3 +1498,254 @@ p {
 #zvQuoteFormState {
   display: contents;
 }
+
+/* ============================================== */
+/* NOSOTROS — T-26                                  */
+/* ============================================== */
+
+/* Stats de historia */
+.zv-about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  border-radius: var(--zv-radius-lg);
+  overflow: hidden;
+}
+
+.zv-about-stat {
+  background-color: var(--zv-navy-800);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.zv-about-stat-value {
+  font-family: var(--zv-font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--zv-white);
+  line-height: 1;
+}
+
+.zv-about-stat-label {
+  font-size: var(--zv-text-sm);
+  color: var(--zv-steel-400);
+}
+
+/* Timeline */
+.zv-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 48px;
+}
+
+.zv-timeline::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--zv-navy-700);
+}
+
+.zv-timeline-item {
+  display: flex;
+  gap: 28px;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+.zv-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.zv-timeline-marker {
+  position: absolute;
+  left: -48px;
+  top: 2px;
+  width: 32px;
+  height: 32px;
+  background-color: var(--zv-steel-500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--zv-white);
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.zv-timeline-content {
+  flex: 1;
+}
+
+.zv-timeline-date {
+  font-size: var(--zv-text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--zv-steel-500);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.zv-timeline-content h4 {
+  font-family: var(--zv-font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--zv-white);
+  margin-bottom: 8px;
+}
+
+.zv-timeline-content p {
+  font-size: var(--zv-text-sm);
+  color: var(--zv-steel-400);
+  margin-bottom: 0;
+  line-height: 1.65;
+}
+
+/* Misión, visión y valores */
+.zv-mvv-card {
+  background-color: var(--zv-white);
+  border: 1px solid var(--zv-border-light);
+  border-radius: var(--zv-radius-lg);
+  padding: 32px;
+  height: 100%;
+  transition: var(--zv-transition);
+}
+
+.zv-mvv-card:hover {
+  border-color: var(--zv-border-accent);
+  box-shadow: 0 8px 24px rgba(26, 45, 66, 0.07);
+}
+
+.zv-mvv-icon {
+  width: 44px;
+  height: 44px;
+  background-color: var(--zv-cream);
+  border-radius: var(--zv-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--zv-steel-500);
+  margin-bottom: 16px;
+}
+
+.zv-mvv-card h3 {
+  font-family: var(--zv-font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--zv-navy-900);
+  margin-bottom: 12px;
+}
+
+.zv-mvv-card h4 {
+  font-family: var(--zv-font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--zv-navy-900);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.zv-mvv-card p {
+  font-size: var(--zv-text-sm);
+  color: var(--zv-text-secondary);
+  margin-bottom: 0;
+  line-height: 1.65;
+}
+
+.zv-mvv-tag {
+  font-size: var(--zv-text-xs);
+  background-color: var(--zv-navy-900);
+  color: var(--zv-steel-400);
+  padding: 2px 8px;
+  border-radius: var(--zv-radius-sm);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* Organigrama */
+.zv-org-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.zv-org-level {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.zv-org-level--top {
+  margin-bottom: 0;
+}
+
+.zv-org-connector {
+  width: 2px;
+  height: 40px;
+  background-color: var(--zv-navy-700);
+  margin: 0 auto;
+}
+
+.zv-org-node {
+  background-color: var(--zv-navy-800);
+  border: 1px solid var(--zv-navy-700);
+  border-radius: var(--zv-radius-md);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--zv-text-sm);
+  color: var(--zv-steel-300);
+  font-family: var(--zv-font-display);
+  font-weight: 500;
+  text-align: center;
+  max-width: 220px;
+  flex: 1;
+  min-width: 160px;
+}
+
+.zv-org-node i {
+  color: var(--zv-steel-500);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.zv-org-node--primary {
+  background-color: var(--zv-steel-500);
+  border-color: var(--zv-steel-500);
+  color: var(--zv-white);
+  font-size: 1rem;
+  padding: 20px 32px;
+  max-width: 320px;
+}
+
+.zv-org-node--primary i {
+  color: var(--zv-white);
+  font-size: 1rem;
+}
+
+@media (max-width: 767.98px) {
+  .zv-about-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .zv-org-level {
+    flex-direction: column;
+    align-items: center;
+  }
+  .zv-org-node {
+    max-width: 100%;
+    width: 100%;
+  }
+}
