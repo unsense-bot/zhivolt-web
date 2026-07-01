@@ -24,7 +24,7 @@ const ZV_PRODUCTS_URL = "assets/data/products.json";
  * Endpoint de Formspree para el formulario de cotización (T-24).
  * Reemplaza el ID con el de tu formulario real en https://formspree.io
  */
-const ZV_FORMSPREE_ENDPOINT = "https://formspree.io/f/REEMPLAZAR_CON_TU_ID";
+const ZV_FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzjwoyk";
 
 /**
  * Formatea un número como precio en USD (sin decimales).
