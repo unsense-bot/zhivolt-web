@@ -1749,3 +1749,148 @@ p {
     width: 100%;
   }
 }
+
+/* ============================================== */
+/* CONTACTO — T-27                                */
+/* ============================================== */
+
+/* Tarjeta de datos corporativos (columna izquierda) */
+.zv-contact-info-card {
+  background-color: var(--zv-navy-900);
+  border-radius: var(--zv-radius-lg);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Fila individual: ícono + etiqueta + valor */
+.zv-contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* Círculo con ícono */
+.zv-contact-info-icon {
+  width: 44px;
+  height: 44px;
+  background-color: var(--zv-navy-700);
+  border-radius: var(--zv-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--zv-steel-500);
+  flex-shrink: 0;
+}
+
+/* Etiqueta pequeña sobre el valor */
+.zv-contact-info-label {
+  display: block;
+  font-size: var(--zv-text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--zv-steel-400);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* Valor de contacto */
+.zv-contact-info-value {
+  font-family: var(--zv-font-display);
+  font-size: var(--zv-text-sm);
+  color: var(--zv-white);
+  font-weight: 500;
+  display: block;
+}
+
+.zv-contact-info-value a {
+  color: var(--zv-white);
+  transition: var(--zv-transition-fast);
+}
+
+.zv-contact-info-value a:hover {
+  color: var(--zv-steel-400);
+}
+
+/* Contenedor del iframe de Google Maps */
+.zv-contact-map-wrap {
+  border-radius: var(--zv-radius-lg);
+  overflow: hidden;
+  height: 280px;
+  border: 1px solid var(--zv-border-light);
+}
+
+.zv-contact-map-wrap iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+/* Tarjeta del formulario de consulta */
+.zv-contact-form-card {
+  background-color: var(--zv-white);
+  border: 1px solid var(--zv-border-light);
+  border-radius: var(--zv-radius-lg);
+  padding: 40px;
+}
+
+.zv-contact-form-card .form-label {
+  font-size: var(--zv-text-sm);
+  font-weight: 500;
+  color: var(--zv-navy-900);
+  margin-bottom: 6px;
+}
+
+/* Mensaje de error de envío (mismo patrón que .zv-quote-error) */
+.zv-contact-error {
+  background-color: rgba(193, 110, 78, 0.08);
+  border: 1px solid rgba(193, 110, 78, 0.3);
+  border-radius: var(--zv-radius-md);
+  padding: 12px 16px;
+  font-size: var(--zv-text-sm);
+  color: #a8512f;
+}
+
+.zv-contact-error a {
+  color: #a8512f;
+  font-weight: 600;
+}
+
+/* Estado de confirmación post-envío */
+.zv-contact-success {
+  text-align: center;
+  padding: 56px 40px;
+}
+
+.zv-contact-success-icon {
+  font-size: 4rem;
+  color: #2a9d5c;
+  margin-bottom: 20px;
+}
+
+.zv-contact-success h3 {
+  font-family: var(--zv-font-display);
+  font-weight: 700;
+  color: var(--zv-navy-900);
+  margin-bottom: 12px;
+}
+
+.zv-contact-success p {
+  color: var(--zv-text-secondary);
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .zv-contact-form-card {
+    padding: 28px 24px;
+  }
+
+  .zv-contact-info-card {
+    padding: 28px 24px;
+  }
+}

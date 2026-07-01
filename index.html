@@ -516,7 +516,6 @@
       </div>
     </footer>
 
-    <!-- Bootstrap 5.3.8 Bundle JS (incluye Popper) -->
     <!-- FORMULARIO DE COTIZACIÓN — T-23/T-24/T-25 -->
     <div
       class="modal fade"
@@ -734,24 +733,6 @@
         </div>
       </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- AOS JS — el AOS.init() real con la configuración del proyecto llega en T-32 (Sprint 4) -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
-    <!-- Lógica compartida del proyecto -->
-    <script src="assets/js/main.js"></script>
-
-    <!-- Carrito de cotización (compartido, vive en el navbar de las 5 páginas) -->
-    <script src="assets/js/quote-cart.js"></script>
-
-    <!-- Lógica específica de la página de inicio (Vehículos Destacados) -->
-    <script src="assets/js/index.js"></script>
-
     <!-- CARRITO SIDEBAR — T-21 -->
     <div
       class="offcanvas offcanvas-end zv-cart-offcanvas"
@@ -798,5 +779,24 @@
         </button>
       </div>
     </div>
+
+    <!-- SCRIPTS — orden crítico: Bootstrap → AOS → main.js → quote-cart.js → index.js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- AOS JS — el AOS.init() real con la configuración del proyecto llega en T-32 (Sprint 4) -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Lógica compartida del proyecto -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Carrito de cotización (compartido, vive en el navbar de las 5 páginas) -->
+    <script src="assets/js/quote-cart.js"></script>
+
+    <!-- Lógica específica de la página de inicio (Vehículos Destacados) -->
+    <script src="assets/js/index.js"></script>
   </body>
 </html>
