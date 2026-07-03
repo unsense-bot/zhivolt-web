@@ -627,7 +627,10 @@
                       class="form-control zv-form-control"
                       id="zvFieldTelefono"
                       name="telefono"
-                      placeholder="+51 9XXXXXXXX"
+                      placeholder="9XXXXXXXX"
+                      inputmode="numeric"
+                      maxlength="9"
+                      pattern="[0-9]{9}"
                       required
                     />
                     <div class="invalid-feedback">

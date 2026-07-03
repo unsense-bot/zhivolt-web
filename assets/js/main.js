@@ -119,3 +119,15 @@ document.addEventListener("DOMContentLoaded", () => {
 // botón "Agregar a cotización", o más adelante el sidebar de T-21), sin
 // necesidad de recargar la página. El evento lo dispara quote-cart.js (T-20).
 document.addEventListener("zv:cartUpdated", zvUpdateCartBadge);
+
+// Restringe el campo de teléfono a solo dígitos, máximo 9 caracteres.
+// Se ejecuta en las 5 páginas; si el campo no existe en la página actual,
+// getElementById devuelve null y el bloque simplemente no hace nada.
+document.addEventListener("DOMContentLoaded", function () {
+  const zvPhoneInput = document.getElementById("zvFieldTelefono");
+  if (zvPhoneInput) {
+    zvPhoneInput.addEventListener("input", function () {
+      this.value = this.value.replace(/\D/g, "").slice(0, 9);
+    });
+  }
+});
