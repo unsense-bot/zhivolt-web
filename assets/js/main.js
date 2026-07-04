@@ -113,6 +113,21 @@ document.addEventListener("DOMContentLoaded", () => {
   zvSetActiveNavLink();
   zvUpdateCartBadge();
   zvSetCurrentYear();
+
+  // T-32: inicializa AOS una sola vez, en el único archivo que se carga en
+  // las 5 páginas. Respeta "prefers-reduced-motion" (WCAG SC 2.3.3): si el
+  // usuario configuró reducir movimiento en su sistema, AOS se desactiva
+  // por completo y el contenido se muestra de inmediato sin animar.
+  if (typeof AOS !== "undefined") {
+    AOS.init({
+      duration: 700,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 80,
+      disable: () =>
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    });
+  }
 });
 
 // T-22: el badge se refresca solo cuando el carrito cambia (clic en cualquier

@@ -40,6 +40,14 @@ function zvRenderProductBasicInfo(product, categories) {
   zvRenderDescription(product);
   zvRenderGallery(product);
   zvRenderSpecTable(product);
+
+  // T-32: esta página rellena su contenido de forma asíncrona (fetch +
+  // toggles de d-none en la descripción). Si AOS.init() ya corrió en
+  // main.js antes de que esto termine, sus cálculos de posición quedarían
+  // basados en elementos vacíos o aún ocultos. Este refresh, ejecutado justo
+  // después de que todo el contenido real ya está en el DOM, es lo que
+  // permite usar data-aos aquí con seguridad.
+  if (typeof AOS !== "undefined") AOS.refresh();
 }
 
 /**

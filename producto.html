@@ -40,6 +40,9 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body data-page="catalogo">
+    <a href="#main-content" class="zv-skip-link"
+      >Saltar al contenido principal</a
+    >
     <!-- data-page="catalogo": se llega aquí desde el catálogo, mantiene ese link activo en el navbar -->
 
     <!-- NAVBAR (idéntico a catalogo.html) -->
@@ -128,7 +131,7 @@
       </div>
     </nav>
 
-    <main>
+    <main id="main-content">
       <!-- BREADCRUMB — T-15 -->
       <div class="zv-section zv-section--light pb-0 pt-4">
         <div class="zv-container">
@@ -220,13 +223,18 @@
           <div
             class="zv-product-description mt-5 d-none"
             id="zvProductDescription"
+            data-aos="fade-up"
           >
             <h3 class="zv-section-title">Descripción</h3>
             <p id="zvProductDescriptionText" style="max-width: 820px"></p>
           </div>
 
           <!-- FICHA TÉCNICA — T-17 -->
-          <div class="zv-spec-table-wrap mt-5" id="zvProductSpecs">
+          <div
+            class="zv-spec-table-wrap mt-5"
+            id="zvProductSpecs"
+            data-aos="fade-up"
+          >
             <h3 class="zv-section-title">Ficha técnica</h3>
             <div class="zv-spec-grid" id="zvProductSpecsGrid">
               <!-- product.js inyecta aquí las filas de specs -->
@@ -273,24 +281,35 @@
             </p>
             <div>
               <a
-                href="#"
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="zv-social-link"
                 aria-label="Facebook de ZhiVolt"
                 ><i class="fa-brands fa-facebook-f" aria-hidden="true"></i
               ></a>
               <a
-                href="#"
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="zv-social-link"
-                aria-label="Instagram de ZhiVolt"
+                aria-label="Facebook de ZhiVolt"
                 ><i class="fa-brands fa-instagram" aria-hidden="true"></i
               ></a>
               <a
-                href="#"
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="zv-social-link"
-                aria-label="LinkedIn de ZhiVolt"
+                aria-label="Facebook de ZhiVolt"
                 ><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i
               ></a>
-              <a href="#" class="zv-social-link" aria-label="TikTok de ZhiVolt"
+              <a
+                href="https://www.tiktok.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="zv-social-link"
+                aria-label="Facebook de ZhiVolt"
                 ><i class="fa-brands fa-tiktok" aria-hidden="true"></i
               ></a>
             </div>
@@ -317,7 +336,7 @@
               </li>
               <li class="mb-2">
                 <i class="fa-solid fa-phone me-2" aria-hidden="true"></i
-                ><a href="tel:+5114567890">+51 1 456 7890</a>
+                ><a href="tel:+51987321654">+51 987 321 654</a>
               </li>
             </ul>
           </div>
@@ -385,7 +404,10 @@
                 <div class="row g-3">
                   <div class="col-md-6">
                     <label for="zvFieldRuc" class="form-label"
-                      >RUC <span class="zv-required">*</span></label
+                      >RUC
+                      <span class="zv-required" aria-hidden="true"
+                        >*</span
+                      ></label
                     >
                     <input
                       type="text"
@@ -403,7 +425,10 @@
                   </div>
                   <div class="col-md-6">
                     <label for="zvFieldRazonSocial" class="form-label"
-                      >Razón social <span class="zv-required">*</span></label
+                      >Razón social
+                      <span class="zv-required" aria-hidden="true"
+                        >*</span
+                      ></label
                     >
                     <input
                       type="text"
@@ -419,7 +444,10 @@
                   </div>
                   <div class="col-md-6">
                     <label for="zvFieldCargo" class="form-label"
-                      >Cargo <span class="zv-required">*</span></label
+                      >Cargo
+                      <span class="zv-required" aria-hidden="true"
+                        >*</span
+                      ></label
                     >
                     <input
                       type="text"
@@ -436,7 +464,9 @@
                   <div class="col-md-6">
                     <label for="zvFieldEmail" class="form-label"
                       >Email corporativo
-                      <span class="zv-required">*</span></label
+                      <span class="zv-required" aria-hidden="true"
+                        >*</span
+                      ></label
                     >
                     <input
                       type="email"
@@ -452,17 +482,17 @@
                   </div>
                   <div class="col-md-6">
                     <label for="zvFieldTelefono" class="form-label"
-                      >Teléfono <span class="zv-required">*</span></label
+                      >Teléfono
+                      <span class="zv-required" aria-hidden="true"
+                        >*</span
+                      ></label
                     >
                     <input
                       type="tel"
                       class="form-control zv-form-control"
                       id="zvFieldTelefono"
                       name="telefono"
-                      placeholder="9XXXXXXXX"
-                      inputmode="numeric"
-                      maxlength="9"
-                      pattern="[0-9]{9}"
+                      placeholder="+51 9XXXXXXXX"
                       required
                     />
                     <div class="invalid-feedback">
@@ -472,7 +502,9 @@
                   <div class="col-md-6">
                     <label for="zvFieldProyeccion" class="form-label"
                       >Proyección de compra mensual
-                      <span class="zv-required">*</span></label
+                      <span class="zv-required" aria-hidden="true"
+                        >*</span
+                      ></label
                     >
                     <select
                       class="form-select zv-form-control"

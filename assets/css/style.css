@@ -1896,45 +1896,88 @@ p {
 }
 
 /* ============================================== */
-/* T-28/T-29 — AJUSTES RESPONSIVE (375px)           */
-/* Corrige elementos con ancho fijo que no se        */
-/* adaptaban al viewport mínimo probado (375px)      */
+/* T-31 — ACCESIBILIDAD                            */
 /* ============================================== */
 
-@media (max-width: 575.98px) {
-  /* El offcanvas del carrito tenía --bs-offcanvas-width: 420px fijo,
-     mayor que el propio viewport en 375px: el borde izquierdo del
-     contenido quedaba parcialmente fuera de pantalla. */
-  .zv-cart-offcanvas {
-    --bs-offcanvas-width: 100vw;
-  }
+/* Corrección de contraste WCAG AA (SC 1.4.3).
+   --zv-steel-500 (#7c8ea6) sobre fondos claros (cream/blanco) da 2.92:1,
+   muy por debajo del mínimo de 4.5:1 para texto normal. Afectaba a
+   .zv-eyebrow en secciones claras, .zv-badge y todo lo que usa
+   --zv-text-muted (precio referencial, MOQ, breadcrumb, claves de la
+   ficha técnica, etiquetas del modal de cotización). Se introduce un
+   tono más oscuro que conserva el mismo matiz de marca. */
+:root {
+  --zv-steel-700: #5a6d85; /* 4.63:1 sobre cream/blanco — cumple AA */
+  --zv-text-muted: var(--zv-steel-700);
+}
 
-  .zv-cart-offcanvas .offcanvas-header,
-  .zv-cart-offcanvas .offcanvas-footer {
-    padding: 16px 20px;
-  }
+.zv-eyebrow {
+  color: var(--zv-steel-700);
+}
 
-  .zv-cart-item {
-    padding: 14px 20px;
-    gap: 12px;
-  }
+.zv-badge {
+  color: var(--zv-steel-700);
+}
 
-  /* Resumen de productos en el modal de cotización: el nombre no
-     truncaba y podía forzar scroll horizontal con nombres largos. */
-  .zv-quote-products-list li {
-    flex-wrap: nowrap;
-  }
+/* Nota: .zv-section--dark .zv-eyebrow y .zv-section--mid .zv-eyebrow
+   ya usaban --zv-steel-400 (6.3:1 sobre navy), que sí cumplía AA y
+   por tanto no se toca. Esa regla tiene mayor especificidad que la de
+   arriba, así que sigue ganando en fondos oscuros sin cambios. */
 
-  .zv-quote-product-name {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    min-width: 0;
-  }
+/* Enlace "saltar al contenido principal" — WCAG SC 2.4.1 (Bypass Blocks).
+   Invisible hasta recibir foco por teclado. */
+.zv-skip-link {
+  position: absolute;
+  top: -48px;
+  left: 12px;
+  z-index: 2000;
+  background-color: var(--zv-navy-900);
+  color: var(--zv-white);
+  padding: 10px 18px;
+  border-radius: var(--zv-radius-sm);
+  font-family: var(--zv-font-body);
+  font-weight: 600;
+  font-size: var(--zv-text-sm);
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
 
-  .zv-quote-modal .modal-header,
-  .zv-quote-modal .modal-body,
-  .zv-quote-modal .modal-footer {
-    padding: 18px 20px;
+.zv-skip-link:focus {
+  top: 12px;
+  outline: 3px solid var(--zv-steel-400);
+  outline-offset: 2px;
+}
+
+/* Indicador de foco visible para navegación por teclado (WCAG SC 2.4.7).
+   Antes, el navbar solo cambiaba de color en :focus (neutral-200 → blanco,
+   una diferencia casi imperceptible); no había ningún indicador de foco
+   real para quien navega con Tab. */
+.navbar-zv .nav-link:focus-visible {
+  color: var(--zv-white);
+  outline: 2px solid var(--zv-steel-400);
+  outline-offset: 3px;
+  border-radius: var(--zv-radius-sm);
+}
+
+/* Refuerzo del anillo de foco en campos de formulario: 0.15 de opacidad
+   era demasiado sutil como único indicador visible tras quitar el
+   outline nativo del navegador. */
+.zv-form-control:focus {
+  box-shadow: 0 0 0 3px rgba(124, 142, 166, 0.45);
+}
+
+/* ============================================== */
+/* T-32 — AOS: red de seguridad de accesibilidad   */
+/* WCAG SC 2.3.3 (Animation from Interactions).     */
+/* Si el usuario configuró "reducir movimiento" en  */
+/* su sistema operativo, el contenido se muestra    */
+/* de inmediato, sin animación ni retraso.          */
+/* ============================================== */
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
   }
 }

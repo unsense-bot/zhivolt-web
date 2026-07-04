@@ -12,14 +12,15 @@ const ZV_PLACEHOLDER_IMG =
 
 let zvCatalogData = null; // cache en memoria, la usará T-13 para filtrar sin volver a hacer fetch
 
-function zvBuildProductCard(product) {
+function zvBuildProductCard(product, index = 0) {
   const firstImage = product.images?.[0] || ZV_PLACEHOLDER_IMG;
   const licenseBadge = product.licenseRequired
     ? '<span class="zv-badge zv-badge--license"><i class="fa-solid fa-id-card"></i> Requiere licencia</span>'
     : '<span class="zv-badge zv-badge--nolicense"><i class="fa-solid fa-check"></i> Sin licencia</span>';
+  const delay = (index % 3) * 100;
 
   return `
-    <div class="col-lg-4 col-md-6 zv-product-col" data-category="${product.category}">
+    <div class="col-lg-4 col-md-6 zv-product-col" data-category="${product.category}" data-aos="fade-up" data-aos-delay="${delay}">
       <article class="zv-product-card">
         <div class="zv-product-img-wrap">
           <img src="${firstImage}" alt="${product.name}" class="zv-product-img"
@@ -47,9 +48,16 @@ function zvRenderCatalog(products) {
   const emptyMsg = document.getElementById("zvCatalogEmpty");
   if (!grid) return;
 
-  grid.innerHTML = products.map(zvBuildProductCard).join("");
+  grid.innerHTML = products
+    .map((product, index) => zvBuildProductCard(product, index))
+    .join("");
   emptyMsg.classList.toggle("d-none", products.length > 0);
   zvInitAddToQuoteButtons(grid); // pinta "Agregar"/"Quitar" según el carrito ya guardado (T-18)
+
+  // T-32: las tarjetas se inyectan después de que AOS.init() ya corrió en
+  // main.js, así que necesitan un refresh explícito para que AOS calcule
+  // su posición real (si no, quedarían sin animar o mal calculadas).
+  if (typeof AOS !== "undefined") AOS.refresh();
 }
 
 async function zvInitCatalog() {
@@ -91,6 +99,11 @@ function zvInitCategoryFilters() {
     });
 
     emptyMsg.classList.toggle("d-none", visibleCount > 0);
+
+    // T-32: al ocultar/mostrar tarjetas con d-none, las que quedan visibles
+    // cambian de posición vertical (el grid se reacomoda). Sin este refresh,
+    // AOS seguiría usando el offset calculado antes del filtro.
+    if (typeof AOS !== "undefined") AOS.refresh();
   });
 }
 
