@@ -133,6 +133,7 @@ function zvBuildCartItemRow(product) {
     <div class="zv-cart-item" data-product-id="${product.id}">
       <div class="zv-cart-item-img-wrap">
         <img src="${img}" alt="${product.name}"
+             loading="lazy" decoding="async"
              onerror="this.onerror=null;this.style.display='none'">
       </div>
       <div class="zv-cart-item-info">

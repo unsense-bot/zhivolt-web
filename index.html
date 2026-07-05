@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-PE">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +11,41 @@
 
     <!-- Favicon: el archivo real se agrega en T-34 (Sprint 4). Esta línea no rompe nada mientras tanto. -->
     <link rel="icon" href="assets/img/brand/favicon.svg" type="image/svg+xml" />
+
+    <!-- T-34: SEO y Open Graph -->
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://TU-DOMINIO-NETLIFY.netlify.app/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ZhiVolt Importaciones S.A.C." />
+    <meta property="og:locale" content="es_PE" />
+    <meta
+      property="og:title"
+      content="ZhiVolt | Importación B2B de Micromovilidad Eléctrica en Perú"
+    />
+    <meta
+      property="og:description"
+      content="ZhiVolt Importaciones S.A.C. — Distribución mayorista de scooters, bicicletas eléctricas, motos y miniautomóviles eléctricos para empresas en Perú."
+    />
+    <meta property="og:url" content="https://TU-DOMINIO-NETLIFY.netlify.app/" />
+    <meta
+      property="og:image"
+      content="https://TU-DOMINIO-NETLIFY.netlify.app/assets/img/products/scooters/okai-es40-neon-ultra-1.png"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="ZhiVolt | Importación B2B de Micromovilidad Eléctrica en Perú"
+    />
+    <meta
+      name="twitter:description"
+      content="ZhiVolt Importaciones S.A.C. — Distribución mayorista de scooters, bicicletas eléctricas, motos y miniautomóviles eléctricos para empresas en Perú."
+    />
+    <meta
+      name="twitter:image"
+      content="https://TU-DOMINIO-NETLIFY.netlify.app/assets/img/products/scooters/okai-es40-neon-ultra-1.png"
+    />
 
     <!-- Google Fonts: Space Grotesk (headings) + Inter (cuerpo) -->
     <!-- Si style.css ya tiene un @import de estas fuentes, elimínalo de ahí: cargarlas vía <link> en el head
@@ -49,7 +84,9 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body data-page="inicio">
-    <a href="#main-content" class="zv-skip-link">Saltar al contenido principal</a>
+    <a href="#main-content" class="zv-skip-link"
+      >Saltar al contenido principal</a
+    >
     <!-- ============================================== -->
     <!-- NAVBAR — T-05 (Sprint 1) ✅                      -->
     <!-- Este bloque completo se reutiliza tal cual en catalogo.html, producto.html,
@@ -200,7 +237,11 @@
             eléctrica en el Perú sea simple y rentable para tu empresa.
           </p>
           <div class="row g-4">
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+            <div
+              class="col-lg-3 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="0"
+            >
               <div class="zv-feature-card">
                 <div class="zv-feature-icon">
                   <i class="fa-solid fa-industry" aria-hidden="true"></i>
@@ -212,7 +253,11 @@
                 </p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="col-lg-3 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               <div class="zv-feature-card">
                 <div class="zv-feature-icon">
                   <i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>
@@ -224,7 +269,11 @@
                 </p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div
+              class="col-lg-3 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               <div class="zv-feature-card">
                 <div class="zv-feature-icon">
                   <i class="fa-solid fa-truck-fast" aria-hidden="true"></i>
@@ -236,7 +285,11 @@
                 </p>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div
+              class="col-lg-3 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
               <div class="zv-feature-card">
                 <div class="zv-feature-icon">
                   <i class="fa-solid fa-headset" aria-hidden="true"></i>
@@ -565,7 +618,10 @@
                 <div class="row g-3">
                   <div class="col-md-6">
                     <label for="zvFieldRuc" class="form-label"
-                      >RUC <span class="zv-required" aria-hidden="true">*</span></label
+                      >RUC
+                      <span class="zv-required" aria-hidden="true"
+                        >*</span
+                      ></label
                     >
                     <input
                       type="text"
@@ -583,7 +639,10 @@
                   </div>
                   <div class="col-md-6">
                     <label for="zvFieldRazonSocial" class="form-label"
-                      >Razón social <span class="zv-required" aria-hidden="true">*</span></label
+                      >Razón social
+                      <span class="zv-required" aria-hidden="true"
+                        >*</span
+                      ></label
                     >
                     <input
                       type="text"
@@ -599,7 +658,10 @@
                   </div>
                   <div class="col-md-6">
                     <label for="zvFieldCargo" class="form-label"
-                      >Cargo <span class="zv-required" aria-hidden="true">*</span></label
+                      >Cargo
+                      <span class="zv-required" aria-hidden="true"
+                        >*</span
+                      ></label
                     >
                     <input
                       type="text"
@@ -616,7 +678,9 @@
                   <div class="col-md-6">
                     <label for="zvFieldEmail" class="form-label"
                       >Email corporativo
-                      <span class="zv-required" aria-hidden="true">*</span></label
+                      <span class="zv-required" aria-hidden="true"
+                        >*</span
+                      ></label
                     >
                     <input
                       type="email"
@@ -632,7 +696,10 @@
                   </div>
                   <div class="col-md-6">
                     <label for="zvFieldTelefono" class="form-label"
-                      >Teléfono <span class="zv-required" aria-hidden="true">*</span></label
+                      >Teléfono
+                      <span class="zv-required" aria-hidden="true"
+                        >*</span
+                      ></label
                     >
                     <input
                       type="tel"
@@ -649,7 +716,9 @@
                   <div class="col-md-6">
                     <label for="zvFieldProyeccion" class="form-label"
                       >Proyección de compra mensual
-                      <span class="zv-required" aria-hidden="true">*</span></label
+                      <span class="zv-required" aria-hidden="true"
+                        >*</span
+                      ></label
                     >
                     <select
                       class="form-select zv-form-control"

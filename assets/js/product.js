@@ -82,6 +82,10 @@ function zvRenderGallery(product) {
   const setMainImage = (src) => {
     mainImg.src = src;
     mainImg.alt = product.name;
+    // La imagen principal es el contenido más visible al cargar la página
+    // (candidata a LCP): se carga de inmediato, sin loading="lazy".
+    mainImg.loading = "eager";
+    mainImg.decoding = "async";
     mainImg.onerror = () => {
       mainImg.onerror = null;
       mainImg.src = ZV_PLACEHOLDER_IMG;
@@ -101,6 +105,7 @@ function zvRenderGallery(product) {
       (src, i) => `
       <button type="button" class="zv-gallery-thumb-btn ${i === 0 ? "active" : ""}" data-src="${src}" aria-label="Ver imagen ${i + 1}">
         <img src="${src}" alt="${product.name} - vista ${i + 1}"
+             loading="lazy" decoding="async"
              onerror="this.onerror=null;this.src='${ZV_PLACEHOLDER_IMG}';">
       </button>`,
     )
