@@ -25,6 +25,7 @@ function zvBuildFeaturedCard(product, categories, index = 0) {
       <article class="zv-product-card">
         <div class="zv-product-img-wrap">
           <img src="${firstImage}" alt="${product.name}" class="zv-product-img"
+               loading="lazy" decoding="async"
                onerror="this.onerror=null;this.src='${ZV_PLACEHOLDER_IMG}';">
           <span class="zv-badge zv-badge--category">${zvGetCategoryName(product.category, categories)}</span>
         </div>
