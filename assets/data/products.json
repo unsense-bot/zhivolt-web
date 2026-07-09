@@ -1,9 +1,9 @@
 {
   "meta": {
-    "version": "1.0.0-dev",
+    "version": "1.1.0",
     "currency": "USD",
-    "priceDisclaimer": "Precios referenciales en USD, sujetos a tipo de cambio vigente. El precio final se confirma en la cotización formal.",
-    "note": "Catálogo en construcción: 3 productos de ejemplo + primer producto real (OKAI ES40 Neon Ultra). Estructura definitiva, no tocar sin actualizar catalog.js y producto.html."
+    "priceDisclaimer": "Precios referenciales en USD, sujetos a tipo de cambio vigente (calculados a ~3.4 PEN/USD). El precio final se confirma en la cotización formal.",
+    "note": "Catálogo con 14 productos reales."
   },
   "categories": [
     {
@@ -29,84 +29,6 @@
   ],
   "products": [
     {
-      "id": "zv-sc-001",
-      "slug": "spark-s1",
-      "category": "scooters",
-      "name": "ZhiVolt Spark S1",
-      "featured": true,
-      "licenseRequired": false,
-      "licenseNote": "Clasificado como VMP (hasta 25 km/h). No requiere licencia, placa ni SOAT, según D.S. N.º 023-2021-MTC.",
-      "certifications": ["CE", "RoHS"],
-      "warranty": "12 meses",
-      "moq": 20,
-      "unitPriceUSD": 280,
-      "images": [
-        "assets/img/products/scooters/spark-s1-1.jpg",
-        "assets/img/products/scooters/spark-s1-2.jpg",
-        "assets/img/products/scooters/spark-s1-3.jpg"
-      ],
-      "specs": {
-        "Motor": "800W BLDC",
-        "Batería": "60V 20Ah Litio",
-        "Velocidad máxima": "25 km/h",
-        "Autonomía": "45 km",
-        "Peso": "18 kg",
-        "Carga máxima": "120 kg"
-      }
-    },
-    {
-      "id": "zv-mt-001",
-      "slug": "moto-e2",
-      "category": "motos",
-      "name": "ZhiVolt Moto E2",
-      "featured": true,
-      "licenseRequired": true,
-      "licenseNote": "Supera el límite de potencia y velocidad de un VMP. Requiere licencia de conducir categoría correspondiente, placa y SOAT.",
-      "certifications": ["CE"],
-      "warranty": "12 meses",
-      "moq": 10,
-      "unitPriceUSD": 580,
-      "images": [
-        "assets/img/products/motos/moto-e2-1.jpg",
-        "assets/img/products/motos/moto-e2-2.jpg",
-        "assets/img/products/motos/moto-e2-3.jpg"
-      ],
-      "specs": {
-        "Motor": "2000W BLDC",
-        "Batería": "72V 32Ah Litio",
-        "Velocidad máxima": "70 km/h",
-        "Autonomía": "80 km",
-        "Peso": "85 kg",
-        "Carga máxima": "150 kg"
-      }
-    },
-    {
-      "id": "zv-mc-001",
-      "slug": "minicity-a2",
-      "category": "minicars",
-      "name": "ZhiVolt MiniCity A2",
-      "featured": true,
-      "licenseRequired": true,
-      "licenseNote": "Clasificado como vehículo motorizado de 4 ruedas. Requiere licencia de conducir, placa, tarjeta de propiedad y SOAT.",
-      "certifications": ["CE"],
-      "warranty": "12 meses",
-      "moq": 3,
-      "unitPriceUSD": 3200,
-      "images": [
-        "assets/img/products/minicars/minicity-a2-1.jpg",
-        "assets/img/products/minicars/minicity-a2-2.jpg",
-        "assets/img/products/minicars/minicity-a2-3.jpg"
-      ],
-      "specs": {
-        "Motor": "5000W",
-        "Batería": "72V 100Ah Litio",
-        "Velocidad máxima": "60 km/h",
-        "Autonomía": "120 km",
-        "Capacidad": "2 pasajeros",
-        "Peso": "650 kg"
-      }
-    },
-    {
       "id": "zv-sc-002",
       "slug": "okai-es40-neon-ultra",
       "category": "scooters",
@@ -115,7 +37,7 @@
       "licenseRequired": false,
       "licenseNote": "Clasificado como VMP (hasta 25 km/h). No requiere licencia, placa ni SOAT, según D.S. N.º 023-2021-MTC.",
       "certifications": [],
-      "warranty": "6 meses",
+      "warranty": "12 meses",
       "moq": 10,
       "unitPriceUSD": 754,
       "description": "Conquista la ciudad con el OKAI ES40 Neon Ultra: motor de 500 W (máxima potencia hasta 1000 W), velocidad de 25 km/h y hasta 70 km de autonomía para tu día a día. Disfruta un manejo suave con suspensión hidráulica delantera, amortiguador trasero ajustable y llantas tubeless de 10″, más luces direccionales y frenos delantero de tambor + electrónico para mayor seguridad. Controla todo desde la app OKAI y llega cómodo con carga útil hasta 120 kg.",
@@ -148,6 +70,420 @@
         "Edad recomendada": "+16 años",
         "App": "Sí (App OKAI: luces ambientales, bloqueo/desbloqueo, modos de conducción, control crucero, estado de batería, mantenimiento)",
         "NFC": "Sí (tarjeta NFC)"
+      }
+    },
+    {
+      "id": "zv-sc-003",
+      "slug": "segway-e3-pro",
+      "category": "scooters",
+      "name": "Segway E3 Pro",
+      "featured": false,
+      "licenseRequired": false,
+      "licenseNote": "Clasificado como VMP (hasta 25 km/h). No requiere licencia, placa ni SOAT, según D.S. N.º 023-2021-MTC.",
+      "certifications": [],
+      "warranty": "12 meses",
+      "moq": 5,
+      "unitPriceUSD": 324,
+      "description": "Da el siguiente salto en movilidad eléctrica con uno de los scooters más ligeros de la línea ZhiVolt, con llantas tubeless de 10″ pensadas para el uso urbano diario.",
+      "images": [
+        "assets/img/products/scooters/segway-e3-pro-1.png",
+        "assets/img/products/scooters/segway-e3-pro-2.png",
+        "assets/img/products/scooters/segway-e3-pro-3.png",
+        "assets/img/products/scooters/segway-e3-pro-4.png"
+      ],
+      "specs": {
+        "Motor": "400 W nominal",
+        "Batería": "367.2 Wh (36 V 10.2 Ah)",
+        "Autonomía máxima": "55 km",
+        "Velocidad máxima": "25 km/h",
+        "Peso máximo (carga)": "100 kg",
+        "Pendiente superable": "15°",
+        "Frenos": "Electrónico trasero y de tambor delantero",
+        "Tiempo de carga": "7 horas",
+        "Manillar plegable": "No",
+        "Vástago plegable": "Sí",
+        "Suspensión": "Delantera y trasera (elastómero)",
+        "Ruedas": "10\" neumáticos tubeless",
+        "Peso neto": "Aprox. 17.8 kg",
+        "Dimensiones desplegado": "116 × 56 × 123 cm",
+        "Dimensiones plegado": "116 × 56 × 44 cm",
+        "Luces": "Delantera y trasera"
+      }
+    },
+    {
+      "id": "zv-sc-004",
+      "slug": "kingsong-ks-n12y-pro",
+      "category": "scooters",
+      "name": "Kingsong KS-N12Y PRO",
+      "featured": false,
+      "licenseRequired": false,
+      "licenseNote": "Clasificado como VMP (hasta 25 km/h). No requiere licencia, placa ni SOAT, según D.S. N.º 023-2021-MTC.",
+      "certifications": [],
+      "warranty": "12 meses",
+      "moq": 5,
+      "unitPriceUSD": 500,
+      "description": "Scooter eléctrico de mayor autonomía dentro de la línea, con motor tipo hub y batería de 750.4 Wh, ideal para trayectos urbanos más largos sin perder la practicidad de un vástago plegable.",
+      "images": [
+        "assets/img/products/scooters/kingsong-ks-n12y-pro-1.png",
+        "assets/img/products/scooters/kingsong-ks-n12y-pro-2.png"
+      ],
+      "specs": {
+        "Motor": "Hub motor",
+        "Batería": "750.4 Wh (48 V 15.6 Ah)",
+        "Autonomía máxima": "65 km",
+        "Velocidad máxima": "25 km/h",
+        "Peso máximo (carga)": "100 kg",
+        "Pendiente superable": "25°",
+        "Frenos": "Electrónico trasero y de tambor delantero",
+        "Tiempo de carga": "8 a 9 horas",
+        "Manillar plegable": "No",
+        "Vástago plegable": "Sí",
+        "Suspensión": "Muelle delantero y trasero",
+        "Ruedas": "10\" neumáticos tubeless",
+        "Peso neto": "Aprox. 27.0 kg",
+        "Dimensiones desplegado": "129.5 × 64.5 × 127 cm",
+        "Dimensiones plegado": "127 × 65 × 62 cm",
+        "Luces": "Delantera y trasera"
+      }
+    },
+    {
+      "id": "zv-sc-005",
+      "slug": "segway-zt3-pro",
+      "category": "scooters",
+      "name": "Segway ZT3 Pro",
+      "featured": true,
+      "licenseRequired": false,
+      "licenseNote": "Clasificado como VMP (hasta 25 km/h). No requiere licencia, placa ni SOAT, según D.S. N.º 023-2021-MTC.",
+      "certifications": [],
+      "warranty": "12 meses",
+      "moq": 5,
+      "unitPriceUSD": 853,
+      "description": "El modelo de mayor equipamiento de la línea scooters: frenos de disco en ambas ruedas, suspensión delantera telescópica doble y llantas de 11″ para una conducción más estable en trayectos urbanos exigentes.",
+      "images": [
+        "assets/img/products/scooters/segway-zt3-pro-1.png",
+        "assets/img/products/scooters/segway-zt3-pro-2.png",
+        "assets/img/products/scooters/segway-zt3-pro-3.png",
+        "assets/img/products/scooters/segway-zt3-pro-4.png"
+      ],
+      "specs": {
+        "Motor": "Hub motor",
+        "Batería": "596 Wh (46.8 V 12.75 Ah)",
+        "Autonomía máxima": "70 km",
+        "Velocidad máxima": "25 km/h",
+        "Peso máximo (carga)": "100 kg",
+        "Pendiente superable": "25°",
+        "Frenos": "Disco delantero y trasero + freno electrónico",
+        "Tiempo de carga": "4 a 5 horas",
+        "Manillar plegable": "No",
+        "Vástago plegable": "Sí",
+        "Suspensión": "Delantera telescópica doble y trasera de muelles",
+        "Ruedas": "11\" neumáticos tubeless",
+        "Peso neto": "Aprox. 35.5 kg",
+        "Dimensiones desplegado": "125 × 64 × 140 cm",
+        "Dimensiones plegado": "125 × 64 × 65 cm",
+        "Luces": "Delantera y trasera"
+      }
+    },
+    {
+      "id": "zv-eb-001",
+      "slug": "ultra-e-cross",
+      "category": "ebikes",
+      "name": "Ultra E-Cross",
+      "featured": false,
+      "licenseRequired": true,
+      "licenseNote": "PROVISIONAL — el proveedor no especificó velocidad máxima. Tiene acelerador de mano (no es de pedaleo asistido puro), por lo que se clasificó de forma conservadora como fuera del rango VMP hasta confirmar el dato real con el proveedor.",
+      "certifications": [],
+      "warranty": "12 meses",
+      "moq": 5,
+      "unitPriceUSD": 1176,
+      "description": "Bicicleta eléctrica de estilo todo terreno con suspensión doble tipo moto y acelerador de pulgar, pensada para quienes buscan la robustez de una moto con la practicidad de una bicicleta.",
+      "images": [
+        "assets/img/products/ebikes/ultra-e-cross-1.png",
+        "assets/img/products/ebikes/ultra-e-cross-2.png",
+        "assets/img/products/ebikes/ultra-e-cross-3.png",
+        "assets/img/products/ebikes/ultra-e-cross-4.png"
+      ],
+      "specs": {
+        "Cuadro": "Super cross, con batería incorporada/extraíble",
+        "Motor": "500 W, 36 V 13 Ah",
+        "Aros": "Triple pared de aluminio Weinmann N.º26",
+        "Llantas": "26x2.60 Kenda Kinetic",
+        "Suspensión trasera": "Monoshock tipo moto",
+        "Suspensión delantera": "Telescópica, recorrido 160 mm",
+        "Frenos": "Disco hidráulico Shimano MT200",
+        "Pantalla": "LCD con indicadores",
+        "Acelerador": "De pulgar (tipo cuatrimoto)",
+        "Asiento": "Tapizado tipo moto",
+        "Catalina": "Aluminio Prowheel",
+        "Cambios": "Shimano, 7 velocidades",
+        "Parador": "Lateral tipo moto"
+      }
+    },
+    {
+      "id": "zv-eb-002",
+      "slug": "cross-electric",
+      "category": "ebikes",
+      "name": "Cross Electric",
+      "featured": false,
+      "licenseRequired": true,
+      "licenseNote": "PROVISIONAL — el proveedor no especificó velocidad máxima. Tiene acelerador de mano (no es de pedaleo asistido puro), por lo que se clasificó de forma conservadora como fuera del rango VMP hasta confirmar el dato real con el proveedor.",
+      "certifications": [],
+      "warranty": "12 meses",
+      "moq": 5,
+      "unitPriceUSD": 824,
+      "description": "Bicicleta eléctrica de cuadro reforzado en acero y batería extraíble con llave, con acelerador de gatillo para un manejo simple e intuitivo desde el primer viaje.",
+      "images": [
+        "assets/img/products/ebikes/cross-electric-1.png",
+        "assets/img/products/ebikes/cross-electric-2.png",
+        "assets/img/products/ebikes/cross-electric-3.png",
+        "assets/img/products/ebikes/cross-electric-4.png"
+      ],
+      "specs": {
+        "Cuadro": "Custom de acero",
+        "Motor": "500 W, 36 V 13 Ah",
+        "Batería": "Extraíble, con llave",
+        "Acelerador": "De gatillo",
+        "Manillar": "Tipo campero",
+        "Suspensión delantera": "Telescópica",
+        "Suspensión trasera": "Tipo moto",
+        "Frenos": "Disco mecánico Shimano",
+        "Llantas": "26x2.6 Kenda Kinetic",
+        "Masa delantera": "Aluminio",
+        "Asiento": "Ancho, ergonómico",
+        "Aros": "Aluminio triple pared Weinmann",
+        "Biela": "Monoplato",
+        "Piñón": "18T",
+        "Parador": "Lateral tipo moto"
+      }
+    },
+    {
+      "id": "zv-eb-003",
+      "slug": "e-bike-squad-yt500",
+      "category": "ebikes",
+      "name": "E-Bike Squad YT500",
+      "featured": true,
+      "licenseRequired": false,
+      "licenseNote": "Clasificado como VMP (hasta 25 km/h). No requiere licencia, placa ni SOAT, según D.S. N.º 023-2021-MTC.",
+      "certifications": [],
+      "warranty": "12 meses",
+      "moq": 5,
+      "unitPriceUSD": 559,
+      "description": "Si lo tuyo es sacarle el máximo a tus paseos y pedaleos outdoor en equipo o solo, SQUAD es tu mejor aliada, ya que te brinda esa energía adicional necesaria para llegar a tu destino.",
+      "images": [
+        "assets/img/products/ebikes/e-bike-squad-yt500-1.png",
+        "assets/img/products/ebikes/e-bike-squad-yt500-2.png",
+        "assets/img/products/ebikes/e-bike-squad-yt500-3.png"
+      ],
+      "specs": {
+        "Tiempo de carga": "2 a 6 horas",
+        "Peso neto": "25.5 kg",
+        "Velocidad máxima": "25 km/h",
+        "Autonomía": "80 a 100 km (según peso y terreno)",
+        "Motor": "Fusion Mid Motor, 36 V 250 W",
+        "Batería": "Power Pack 36 V 13 Ah / celdas LG",
+        "Capacidad de carga": "120 kg",
+        "Luces": "Frontal 12V LED",
+        "Ruedas": "27.5\" x 1.95\"",
+        "Frenos": "Shimano BR-MT200/160",
+        "Cuadro": "Aluminio 6061, 27.5\", 381 mm",
+        "Transmisión": "9 velocidades"
+      }
+    },
+    {
+      "id": "zv-eb-004",
+      "slug": "bicimoto-adventure-velmax",
+      "category": "ebikes",
+      "name": "Bicimoto Adventure VEL.MAX",
+      "featured": false,
+      "licenseRequired": true,
+      "licenseNote": "Supera el límite de velocidad de un VMP (35 km/h > 25 km/h). Requiere licencia de conducir categoría correspondiente, placa y SOAT.",
+      "certifications": [],
+      "warranty": "12 meses",
+      "moq": 5,
+      "unitPriceUSD": 353,
+      "description": "Bicimoto de dos asientos pensada para trayectos cortos compartidos, con alarma, direccionales y bloqueo antirrobo incluidos de fábrica.",
+      "images": [
+        "assets/img/products/ebikes/bicimoto-adventure-velmax-1.png",
+        "assets/img/products/ebikes/bicimoto-adventure-velmax-2.png",
+        "assets/img/products/ebikes/bicimoto-adventure-velmax-3.png",
+        "assets/img/products/ebikes/bicimoto-adventure-velmax-4.png"
+      ],
+      "specs": {
+        "Autonomía": "40 km",
+        "Velocidad máxima": "35 km/h",
+        "Motor": "350 W",
+        "Capacidad de carga": "150 kg",
+        "Tiempo de carga": "6 a 8 horas",
+        "Batería": "48 V 20 Ah (grafeno)",
+        "Cargador": "48 V",
+        "N.º de asientos": "2",
+        "Frenos": "Delantero de disco",
+        "Ruedas": "3.00-10 (delantera y trasera)",
+        "Extras": "Alarma, luces LED, direccionales y bloqueo antirrobo"
+      }
+    },
+    {
+      "id": "zv-mt-001",
+      "slug": "moto-scooter-time",
+      "category": "motos",
+      "name": "Moto Scooter TIME",
+      "featured": false,
+      "licenseRequired": true,
+      "licenseNote": "Supera el límite de velocidad de un VMP (45 km/h > 25 km/h). Requiere licencia de conducir categoría correspondiente, placa y SOAT.",
+      "certifications": [],
+      "warranty": "12 meses",
+      "moq": 5,
+      "unitPriceUSD": 824,
+      "description": "Moto Scooter TIME 60V 20Ah: scooter eléctrica con motor de 1000 W, autonomía de 70 km, frenos de disco y accesorios para uso diario.",
+      "images": [
+        "assets/img/products/motos/moto-scooter-time-1.png",
+        "assets/img/products/motos/moto-scooter-time-2.png",
+        "assets/img/products/motos/moto-scooter-time-3.png"
+      ],
+      "specs": {
+        "Autonomía": "70 km",
+        "Velocidad máxima": "45 km/h",
+        "Motor": "1000 W",
+        "Batería": "60 V 20 Ah (plomo-ácido, no extraíble)",
+        "Beneficios": "3 mantenimientos sin costo durante el primer año"
+      }
+    },
+    {
+      "id": "zv-mt-002",
+      "slug": "moto-scooter-mkk-lifep04",
+      "category": "motos",
+      "name": "Moto Scooter MKK LiFePO4",
+      "featured": false,
+      "licenseRequired": true,
+      "licenseNote": "Supera el límite de velocidad de un VMP (75 km/h > 25 km/h). Requiere licencia de conducir categoría correspondiente, placa y SOAT.",
+      "certifications": [],
+      "warranty": "12 meses",
+      "moq": 5,
+      "unitPriceUSD": 2059,
+      "description": "Mejor rendimiento frente a las diversas condiciones complejas de terreno y clima, con un nuevo diseño en sus componentes electrónicos.",
+      "images": [
+        "assets/img/products/motos/moto-scooter-mkk-lifep04-1.png",
+        "assets/img/products/motos/moto-scooter-mkk-lifep04-2.png",
+        "assets/img/products/motos/moto-scooter-mkk-lifep04-3.png"
+      ],
+      "specs": {
+        "Autonomía": "70 a 90 km (modo ECO, 45 km/h)",
+        "Velocidad máxima": "75 km/h",
+        "Motor": "2000 W, con refrigeración líquida (tecnología Luyuan)",
+        "Batería": "72 V 30 Ah (LiFePO4, no extraíble)",
+        "Beneficios": "3 mantenimientos sin costo durante el primer año"
+      }
+    },
+    {
+      "id": "zv-mt-003",
+      "slug": "moto-st-hunter",
+      "category": "motos",
+      "name": "Moto ST Hunter",
+      "featured": true,
+      "licenseRequired": true,
+      "licenseNote": "Supera el límite de velocidad de un VMP (75 km/h > 25 km/h). Requiere licencia de conducir categoría correspondiente, placa y SOAT.",
+      "certifications": [],
+      "warranty": "12 meses",
+      "moq": 5,
+      "unitPriceUSD": 3824,
+      "description": "Sus líneas agresivas y su imponente vista frontal reflejan una personalidad fuerte y moderna, diseñada para destacar en cada recorrido.",
+      "images": [
+        "assets/img/products/motos/moto-st-hunter-1.png",
+        "assets/img/products/motos/moto-st-hunter-2.png",
+        "assets/img/products/motos/moto-st-hunter-3.png"
+      ],
+      "specs": {
+        "Autonomía": "70 km con 1 batería / 140 km con 2 baterías",
+        "Velocidad máxima": "75 km/h",
+        "Motor": "2500 W",
+        "Batería": "60 V 32 Ah (litio NCM, extraíble)",
+        "Beneficios": "3 mantenimientos sin costo durante el primer año"
+      }
+    },
+    {
+      "id": "zv-mt-004",
+      "slug": "trimoto-v1-roof",
+      "category": "motos",
+      "name": "Trimoto V1 – Roof",
+      "featured": true,
+      "licenseRequired": true,
+      "licenseNote": "PROVISIONAL — la velocidad (25 km/h) calzaría en el rango VMP, pero la clasificación VMP de la normativa aplica a vehículos de una vía (bicicletas/scooters de 2 ruedas); un vehículo de 3 ruedas con cabina/techo probablemente no califique para esa excepción sin importar la velocidad. Se marcó como \"requiere licencia\" de forma conservadora hasta confirmar con la normativa exacta.",
+      "certifications": [],
+      "warranty": "12 meses",
+      "moq": 5,
+      "unitPriceUSD": 1412,
+      "description": "Trimoto eléctrica equipada con una cubierta resistente que brinda mayor protección y comodidad durante cada recorrido. Incorpora una batería LiFePO4 de alta durabilidad, con una vida útil aproximada de hasta 5 años.",
+      "images": [
+        "assets/img/products/motos/trimoto-v1-roof-1.png",
+        "assets/img/products/motos/trimoto-v1-roof-2.png",
+        "assets/img/products/motos/trimoto-v1-roof-3.png"
+      ],
+      "specs": {
+        "Autonomía": "55 a 60 km",
+        "Velocidad máxima": "25 km/h",
+        "Motor": "800 W",
+        "Batería": "48 V 30 Ah (LiFePO4, extraíble)",
+        "Beneficios": "3 mantenimientos sin costo durante el primer año"
+      }
+    },
+    {
+      "id": "zv-mc-001",
+      "slug": "mini-baw-yuanbao",
+      "category": "minicars",
+      "name": "Mini BAW Yuanbao",
+      "featured": true,
+      "licenseRequired": true,
+      "licenseNote": "Clasificado como vehículo motorizado de 4 ruedas. Requiere licencia de conducir, placa, tarjeta de propiedad y SOAT.",
+      "certifications": [],
+      "warranty": "12 meses",
+      "moq": 2,
+      "unitPriceUSD": 3600,
+      "description": "Miniauto eléctrico de carrocería cerrada para 4 pasajeros, con autonomía de 120 km y velocidad máxima de 100 km/h — una alternativa compacta para movilidad urbana empresarial.",
+      "images": [
+        "assets/img/products/minicars/mini-baw-yuanbao-1.png",
+        "assets/img/products/minicars/mini-baw-yuanbao-2.png"
+      ],
+      "specs": {
+        "N.º de asientos": "4",
+        "Modelo": "BAW Yuanbao",
+        "Tipo": "BEV (vehículo eléctrico de batería)",
+        "Homologación": "CCC",
+        "Tipo de carrocería": "Cerrada",
+        "Peso en orden de marcha": "693 kg",
+        "Distancia entre ejes": "2050 mm",
+        "Velocidad máxima": "100 km/h",
+        "Autonomía (NEDC)": "120 km",
+        "Dimensiones": "2980 × 1490 × 1620 mm"
+      }
+    },
+    {
+      "id": "zv-mc-002",
+      "slug": "mini-wuling-hongguang",
+      "category": "minicars",
+      "name": "Miniev Wuling Hongguang",
+      "featured": false,
+      "licenseRequired": true,
+      "licenseNote": "Clasificado como vehículo motorizado de 4 ruedas. Requiere licencia de conducir, placa, tarjeta de propiedad y SOAT.",
+      "certifications": ["ISO 14001"],
+      "warranty": "12 meses",
+      "moq": 2,
+      "unitPriceUSD": 3800,
+      "description": "Miniauto eléctrico de referencia en el segmento urbano, con caja de cambios automática y garantía de fábrica de 1 año.",
+      "images": [
+        "assets/img/products/minicars/mini-wuling-hongguang-1.png",
+        "assets/img/products/minicars/mini-wuling-hongguang-2.png"
+      ],
+      "specs": {
+        "Tipo de carrocería": "Cerrada, estilo mini",
+        "Combustible": "Eléctrico",
+        "Garantía": "1 año",
+        "Potencia máxima": "30 kW",
+        "Velocidad máxima": "100 km/h",
+        "N.º de asientos": "4",
+        "Dimensiones": "3256 × 1510 × 1578 mm",
+        "Certificación": "ISO 14001",
+        "Caja de cambios": "Automática",
+        "Sistema de frenos": "Electromagnético"
       }
     }
   ]

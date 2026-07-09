@@ -250,17 +250,21 @@ async function zvHandleQuoteSubmit() {
     const ids = zvGetCartItems();
     const data = await zvGetProductsData();
 
-    const productosTexto = ids
-      .map((id) => {
-        const p = data?.products.find((p) => p.id === id);
-        return p
-          ? `${p.name} (${zvFormatUSD(p.unitPriceUSD)}/u, MOQ: ${p.moq})`
-          : id;
-      })
-      .join(" | ");
+    // Detalle completo por producto: nombre, imagen (URL absoluta, necesaria
+    // para que se vea dentro del correo), precio unitario y ficha técnica.
+    const productos = ids
+      .map((id) => data?.products.find((p) => p.id === id))
+      .filter(Boolean)
+      .map((p) => ({
+        name: p.name,
+        priceLabel: zvFormatUSD(p.unitPriceUSD),
+        moq: p.moq,
+        imageUrl: p.images?.[0] ? `${ZV_SITE_URL}/${p.images[0]}` : "",
+        specs: p.specs || {},
+      }));
 
     const payload = {
-      _subject: `Nueva cotización B2B — ${fd.get("razon_social")}`,
+      type: "quote",
       ruc: fd.get("ruc"),
       razon_social: fd.get("razon_social"),
       cargo: fd.get("cargo"),
@@ -268,15 +272,12 @@ async function zvHandleQuoteSubmit() {
       telefono: fd.get("telefono"),
       proyeccion_mensual: fd.get("proyeccion_mensual"),
       comentarios: fd.get("comentarios") || "—",
-      productos_solicitados: productosTexto,
+      productos,
     };
 
-    const res = await fetch(ZV_FORMSPREE_ENDPOINT, {
+    const res = await fetch(ZV_EMAIL_FUNCTION_URL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
 
