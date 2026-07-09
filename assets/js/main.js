@@ -21,10 +21,19 @@ const ZV_CART_STORAGE_KEY = "zhivolt_quote_cart";
 const ZV_PRODUCTS_URL = "assets/data/products.json";
 
 /**
- * Endpoint de Formspree para el formulario de cotización (T-24).
- * Reemplaza el ID con el de tu formulario real en https://formspree.io
+ * Endpoint de la función serverless de Netlify que envía los correos
+ * (reemplaza a Formspree). Es una ruta relativa: funciona en cualquier
+ * dominio donde esté desplegado el sitio, no necesita configuración.
  */
-const ZV_FORMSPREE_ENDPOINT = "https://formspree.io/f/xvzjwoyk";
+const ZV_EMAIL_FUNCTION_URL = "/.netlify/functions/send-email";
+
+/**
+ * URL pública del sitio ya desplegado en Netlify. Es NECESARIA para construir
+ * URLs absolutas de imágenes dentro de los correos (un cliente de correo no
+ * puede resolver una ruta relativa como "assets/img/...", solo rutas
+ * completas). REEMPLAZAR por la URL real antes de la presentación.
+ */
+const ZV_SITE_URL = "https://zhivolt.netlify.app";
 
 /**
  * Formatea un número como precio en USD (sin decimales).
