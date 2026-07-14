@@ -27,8 +27,8 @@ Proyecto académico para el curso **Introducción a las TIC** — Universidad Te
 |---|---|
 | Bryan Retamozo | Product Owner + Developer |
 | Jorge Rios | Scrum Master + Developer |
-| Bryan Torres | Developer |
-| Jair López | Developer |
+| Bryan Conozco | Developer |
+| Jair Ferré | Developer |
 
 ## Cómo correr el proyecto localmente
 
