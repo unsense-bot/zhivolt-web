@@ -1,83 +1,132 @@
 # ZhiVolt Web
 
-Plataforma web corporativa B2B para **ZhiVolt Importaciones S.A.C.** — importadora de vehículos de micromovilidad eléctrica en el Perú.
+Sitio web institucional B2B de **ZhiVolt Importaciones S.A.C.**, empresa ficticia (con fines académicos) que importa y distribuye al por mayor vehículos de micromovilidad eléctrica en el Perú. El sitio reemplaza el proceso manual de captación de clientes por redes sociales y catálogos en PDF: un comprador B2B puede conocer la empresa, explorar el catálogo y solicitar una cotización formal sin intervención manual del equipo de ventas.
 
-## Descripción del proyecto
+🔗 **Sitio en producción:** [zhivolt.netlify.app](https://zhivolt.netlify.app/)
 
-Sitio web institucional y de captación de leads B2B, diseñado para presentar el catálogo de vehículos eléctricos de ZhiVolt y automatizar el proceso de solicitud de cotizaciones por parte de distribuidores y tiendas minoristas.
+> Proyecto académico del curso **DCI_TI50** — Introducción a las TIC, Universidad Tecnológica del Perú (UTP). ZhiVolt Importaciones S.A.C. es una empresa ficticia; el contenido comercial (precios, productos, datos de contacto) tiene fines exclusivamente educativos.
 
-Proyecto académico para el curso **Introducción a las TIC** — Universidad Tecnológica del Perú, 2026.
+---
+
+## Equipo
+
+| Integrante | Rol Scrum |
+|---|---|
+| Bryan Retamozo | Product Owner |
+| Jorge Rios | Scrum Master |
+| Bryan Conozco | Developer |
+| Jair Ferré | Developer |
+
+Metodología: Scrum simplificado, 4 sprints de 11 días cada uno, tablero Kanban en Jira (To Do / In Progress / Testing / Done).
+
+---
+
+## Funcionalidades principales
+
+- **Catálogo mayorista filtrable** por categoría (scooters, bicicletas eléctricas, motos/trimotos, miniautomóviles), con ficha técnica dinámica por producto.
+- **Clasificación regulatoria real:** cada vehículo indica si requiere licencia de conducir según su velocidad máxima, con base en el D.S. N.º 023-2021-MTC (clasificación VMP para vehículos ≤ 25 km/h).
+- **Sistema de cotización B2B:** carrito de productos en `localStorage`, formulario de datos corporativos, y envío automatizado de dos correos por cada solicitud (uno a la empresa con el detalle completo, otro de confirmación al cliente).
+- **Formulario de contacto general**, independiente del flujo de cotización.
+- Sitio completamente responsive (375 / 768 / 1280 px), con accesibilidad WCAG AA (contraste, navegación por teclado, `aria-*`, skip link) y animaciones respetuosas de `prefers-reduced-motion`.
+
+---
 
 ## Stack tecnológico
 
-| Tecnología | Uso |
+| Capa | Tecnología |
 |---|---|
-| HTML5 + CSS3 | Estructura y estilos |
-| JavaScript ES6+ | Interactividad y lógica |
-| Bootstrap 5 (CDN) | Sistema de grid y componentes |
-| Font Awesome 6 (CDN) | Iconografía |
-| AOS Library (CDN) | Animaciones al hacer scroll |
-| Formspree | Manejo de formularios (sin backend) |
-| Git + GitHub | Control de versiones |
-| Netlify | Hosting y despliegue continuo |
+| Estructura | HTML5 (5 páginas estáticas) |
+| Estilos | CSS3 + [Bootstrap 5.3.8](https://getbootstrap.com/) (CDN) |
+| Interactividad | JavaScript ES6+ vanilla (sin frameworks) |
+| Iconografía | [Font Awesome 6.7.2](https://fontawesome.com/) (CDN) |
+| Animaciones | [AOS 2.3.4](https://michalsnik.github.io/aos/) (Animate on Scroll) |
+| Envío de correos | [Resend](https://resend.com/) API, vía función serverless de Netlify |
+| Backend mínimo | [Netlify Functions](https://docs.netlify.com/functions/overview/) (Node.js) |
+| Hosting / CI-CD | [Netlify](https://www.netlify.com/) — deploy automático desde `main` |
+| Control de versiones | Git + GitHub |
+| Gestión de proyecto | Jira (tablero Kanban) |
 
-## Equipo de desarrollo
-
-| Integrante | Rol |
-|---|---|
-| Bryan Retamozo | Product Owner + Developer |
-| Jorge Rios | Scrum Master + Developer |
-| Bryan Torres | Developer |
-| Jair López | Developer |
-
-## Cómo correr el proyecto localmente
-
-1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/TU-USUARIO/zhivolt-web.git
-   cd zhivolt-web
-   ```
-
-2. Abrir la carpeta en Visual Studio Code:
-   ```bash
-   code .
-   ```
-
-3. Hacer clic derecho sobre `index.html` en el explorador → **"Open with Live Server"**
-
-El sitio abre en `http://127.0.0.1:5500`
+---
 
 ## Estructura del proyecto
 
 ```
 zhivolt-web/
-├── index.html          → Página de inicio
-├── catalogo.html       → Catálogo de productos
-├── producto.html       → Detalle de producto (dinámico via ?id=)
-├── nosotros.html       → Historia, misión, visión y equipo
-├── contacto.html       → Contacto y cotización general
+├── index.html              Página de inicio
+├── catalogo.html            Catálogo de productos
+├── producto.html             Detalle de producto (?id=)
+├── nosotros.html             Historia, misión, visión, valores
+├── contacto.html              Contacto y formulario general
+├── netlify.toml               Configuración de Netlify (ruta de las Functions)
+│
+├── netlify/
+│   └── functions/
+│       └── send-email.js      Función serverless: envía los correos vía Resend
 │
 └── assets/
     ├── css/
-    │   └── style.css           → Estilos globales y variables CSS
+    │   └── style.css           Estilos globales (variables CSS, componentes, responsive)
     ├── js/
-    │   ├── main.js             → Funciones compartidas (navbar, carrito badge)
-    │   ├── catalog.js          → Lógica del catálogo y filtros
-    │   ├── product.js          → Carga dinámica del detalle de producto
-    │   └── quote-cart.js       → Sistema de carrito de cotización
+    │   ├── main.js              Utilidades y constantes compartidas, nav activo, AOS.init()
+    │   ├── catalog.js            Catálogo: fetch, render, filtros
+    │   ├── product.js             Ficha de producto: galería, specs dinámicas
+    │   ├── index.js               Sección "Vehículos Destacados" del home
+    │   └── quote-cart.js           Carrito de cotización (CRUD, sidebar, formulario)
     ├── data/
-    │   └── products.json       → Fuente de datos del catálogo
+    │   └── products.json          Fuente de datos del catálogo (14 productos)
     └── img/
-        ├── brand/              → Logo y favicon
-        └── products/           → Imágenes de vehículos por categoría
-            ├── scooters/
-            ├── ebikes/
-            ├── motos/
-            └── minicars/
+        ├── brand/                  Logo y favicon
+        └── products/                Fotos por categoría (scooters/ebikes/motos/minicars)
 ```
 
-## Metodología
+---
 
-Scrum simplificado — 4 sprints de 11 días cada uno.
-Gestión de tareas: Jira (proyecto ZHIV).
-Rama principal de producción: `main`. Rama de integración: `develop`.
+## Ejecutar el proyecto en local
+
+Al ser un sitio 100% estático (sin build step), basta con servir la carpeta con cualquier servidor HTTP simple:
+
+```bash
+git clone https://github.com/<usuario>/zhivolt-web.git
+cd zhivolt-web
+npx serve .
+```
+
+**Importante:** la función serverless (`netlify/functions/send-email.js`) solo se ejecuta corriendo el sitio con la [Netlify CLI](https://docs.netlify.com/cli/get-started/), no con un servidor estático genérico:
+
+```bash
+npm install -g netlify-cli
+netlify dev
+```
+
+---
+
+## Variables de entorno
+
+| Variable | Dónde se configura | Descripción |
+|---|---|---|
+| `RESEND_API_KEY` | Netlify → Site settings → Environment variables | Clave de la API de Resend usada por `send-email.js`. **Nunca** se escribe en el código fuente ni se sube al repositorio. |
+
+---
+
+## Envío de correos (Resend)
+
+El sitio no usa un servicio de formularios externo: los dos formularios (cotización y contacto) llaman a `netlify/functions/send-email.js`, que envía los correos usando la API de Resend.
+
+**Limitación conocida (documentada, no es un bug):** la cuenta de Resend usada en este proyecto no tiene un dominio verificado (el proyecto no cuenta con presupuesto para comprar uno, al ser un desarrollo académico). Por diseño de la API de Resend, esto significa que **solo se puede entregar correo a la dirección con la que se creó la cuenta** (`zhivolt.ventas@gmail.com`):
+
+- El correo de notificación **a la empresa** siempre llega correctamente, porque su destinatario está fijo en el código.
+- El correo de confirmación **al cliente** solo se entrega si el email ingresado en el formulario coincide con esa misma dirección. Con cualquier otro correo, Resend lo rechaza de forma silenciosa (no rompe el flujo del usuario, que igual ve la confirmación de envío en pantalla).
+
+Para producción real, esto se resuelve verificando un dominio propio en Resend.
+
+---
+
+## Regulación de referencia
+
+La clasificación de "requiere licencia / no requiere licencia" de cada vehículo se basa en el **Decreto Supremo N.º 023-2021-MTC**, que clasifica como Vehículo Menor de Propulsión Humana y/o Eléctrica (VMP) a los vehículos de una vía con velocidad máxima de hasta 25 km/h, exceptuándolos de licencia de conducir, placa y SOAT.
+
+---
+
+## Licencia
+
+Proyecto académico sin fines comerciales. Todo el contenido relativo a "ZhiVolt Importaciones S.A.C." (empresa, productos, precios) es ficticio y fue creado exclusivamente para el curso DCI_TI50 de la UTP.
