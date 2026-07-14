@@ -14,8 +14,8 @@ Sitio web institucional B2B de **ZhiVolt Importaciones S.A.C.**, empresa fictici
 |---|---|
 | Bryan Retamozo | Product Owner |
 | Jorge Rios | Scrum Master |
-| Bryan Torres | Developer |
-| Jair López | Developer |
+| Bryan Conozco | Developer |
+| Jair Ferré | Developer |
 
 Metodología: Scrum simplificado, 4 sprints de 11 días cada uno, tablero Kanban en Jira (To Do / In Progress / Testing / Done).
 
